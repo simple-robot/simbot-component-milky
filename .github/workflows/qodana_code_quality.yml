@@ -1,0 +1,37 @@
+name: Qodana
+
+on:
+  workflow_dispatch:
+  pull_request_target:
+    branches:
+      - main
+      - master
+      - "dev/**"
+  push:
+    branches:
+      - main
+      - master
+      - dev/main
+
+jobs:
+  qodana:
+    if: ${{ !startsWith(github.head_ref, 'dependabot/') }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      checks: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+
+      - name: Qodana Scan
+        uses: JetBrains/qodana-action@v2024.2
+        with:
+          upload-result: true
+          github-token: ${{ secrets.FORLIY_ACCESS_TOKEN }}
+        env:
+          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.FORLIY_ACCESS_TOKEN }}

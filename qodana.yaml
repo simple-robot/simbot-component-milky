@@ -1,0 +1,17 @@
+version: "1.0"
+
+profile:
+  name: qodana.starter
+
+exclude:
+  - name: All
+    paths:
+      - .gradle
+      - .idea
+      - build
+      - gradle/wrapper
+      - README.md
+
+projectJDK: azul-21
+
+linter: jetbrains/qodana-jvm-community:2024.2

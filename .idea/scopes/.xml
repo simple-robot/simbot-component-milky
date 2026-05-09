@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="代码生产" pattern="src[simply-robot*]:*..*" />
+</component>

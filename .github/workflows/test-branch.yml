@@ -1,0 +1,65 @@
+name: Test Branch
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+      - "dev/**"
+    paths:
+      - "**.java"
+      - "**.kt"
+      - "**.kts"
+      - "src/**"
+      - "**/src/**"
+      - "gradle/**"
+      - "gradle.properties"
+      - "settings.gradle.kts"
+      - "build.gradle.kts"
+
+concurrency:
+  group: test-branch-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  JAVA_VERSION: 21
+  JAVA_DISTRIBUTION: zulu
+  GRADLE_VERSION: 8.10.2
+  IS_CI: true
+  GRADLE_OPTS: "-Dfile.encoding=UTF-8"
+
+jobs:
+  build-test:
+    name: Build and test
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Configure git long paths
+        if: runner.os == 'Windows'
+        run: git config --global core.longpaths true
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: gradle
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: ${{ env.GRADLE_VERSION }}
+
+      - name: Run build
+        run: gradle build --info --warning-mode all
+
+      - name: Upload test reports
+        uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: test-reports-${{ matrix.os }}
+          path: "**/build/reports/tests"
+          retention-days: 7
