@@ -50,7 +50,9 @@ subprojects {
 }
 
 dependencies {
-    dokka(project(":simbot-component-milky-model"))
+    dokka(project(":models:simbot-component-milky-model-common"))
+    dokka(project(":models:simbot-component-milky-model-api"))
+    dokka(project(":models:simbot-component-milky-model-event"))
     dokka(project(":simbot-component-milky-api"))
     dokka(project(":simbot-component-milky-core"))
 }

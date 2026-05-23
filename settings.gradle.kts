@@ -33,6 +33,7 @@ plugins {
 }
 
 dependencyResolutionManagement {
+    @Suppress("UnstableApiUsage")
     repositories {
         mavenCentral()
     }
@@ -40,6 +41,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "simbot-component-milky"
 
-include(":simbot-component-milky-model")
+include("models:simbot-component-milky-model-common")
+include("models:simbot-component-milky-model-api")
+include("models:simbot-component-milky-model-event")
+include("models:simbot-component-milky-model-entity")
 include(":simbot-component-milky-api")
 include(":simbot-component-milky-core")

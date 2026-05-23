@@ -25,38 +25,14 @@ plugins {
     id("milky.module-conventions")
 }
 
-description = "API abstractions and client contracts for simbot-component-milky."
+description = "Shared model definitions for simbot-component-milky."
 
 kotlin {
     sourceSets {
         commonMain.dependencies {
-            api(project(":models:simbot-component-milky-model-api"))
-            // api(project(":models:simbot-component-milky-model-event"))
-            api(libs.simbot.api)
-            api(libs.simbot.common.annotations)
-            api(libs.simbot.common.apidefinition)
-            api(libs.kotlinx.coroutines.core)
+            api(libs.kotlinx.serialization.core)
             api(libs.kotlinx.serialization.json)
-            api(libs.ktor.client.core)
-            api(libs.ktor.client.contentNegotiation)
-            api(libs.ktor.serialization.kotlinxJson)
-        }
-
-        commonTest.dependencies {
-            implementation(libs.kotlinx.coroutines.test)
-            implementation(libs.ktor.client.mock)
-        }
-
-        jsMain.dependencies {
-            api(libs.ktor.client.js)
-        }
-    }
-}
-
-dokka {
-    dokkaSourceSets {
-        named("commonMain") {
-            samples.from(projectDir.resolve("src/commonTest/kotlin/"))
+            api(libs.kotlinx.datetime)
         }
     }
 }
