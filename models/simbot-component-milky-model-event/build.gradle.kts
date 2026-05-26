@@ -1,3 +1,7 @@
+import com.google.devtools.ksp.gradle.KspAATask
+import org.gradle.kotlin.dsl.withType
+import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
+
 /*
  *     Copyright (c) 2026. ForteScarlet.
  *
@@ -23,17 +27,47 @@
 
 plugins {
     id("milky.module-conventions")
+    alias(libs.plugins.ksp)
 }
 
 description = "Shared model definitions for simbot-component-milky."
 
 kotlin {
+    @OptIn(ExperimentalAbiValidation::class)
+    abiValidation {
+        filters.excluded.annotatedWith.addAll(
+            "love.forte.simbot.milky.model.event.MilkyEventModelConstructor",
+        )
+    }
+
     sourceSets {
-        commonMain.dependencies {
-            api(project(":models:simbot-component-milky-model-common"))
-            api(libs.kotlinx.serialization.core)
-            api(libs.kotlinx.serialization.json)
-            api(libs.kotlinx.datetime)
+        commonMain {
+            kotlin.srcDir(project.layout.buildDirectory.dir("generated/ksp/metadata/commonMain/kotlin"))
+
+            dependencies {
+                api(project(":models:simbot-component-milky-model-common"))
+                api(libs.kotlinx.serialization.core)
+                api(libs.kotlinx.serialization.json)
+                api(libs.kotlinx.datetime)
+            }
         }
     }
+}
+
+dependencies {
+    add(
+        "kspCommonMainMetadata",
+        project(":models:simbot-component-milky-model-event-data-serializer-resolver-processor")
+    )
+}
+
+// https://github.com/google/ksp/issues/963#issuecomment-2919262595
+tasks.withType<KspAATask>().configureEach {
+    if (name != "kspCommonMainKotlinMetadata") {
+        dependsOn("kspCommonMainKotlinMetadata")
+    }
+}
+
+tasks.sourcesJar.configure {
+    dependsOn("kspCommonMainKotlinMetadata")
 }

@@ -1,0 +1,59 @@
+[versions]
+kotlin = "2.3.0"
+dokka = "2.1.0"
+kotlinx-coroutines = "1.9.0"
+kotlinx-serialization = "1.7.3"
+kotlinx-datetime = "0.6.2"
+kotlinx-io = "0.8.2"
+ktor = "3.3.3"
+slf4j = "2.0.17"
+log4j = "2.24.3"
+simbot = "5.0.0-Preview2"
+maven-publish-plugin = "0.34.0"
+ksp = "2.3.4"
+codegentle = "0.0.4"
+
+[libraries]
+maven-publish = { module = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin", version.ref = "maven-publish-plugin" }
+dokka-plugin = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokka" }
+
+simbot-api = { module = "love.forte.simbot:simbot-api", version.ref = "simbot" }
+simbot-core = { module = "love.forte.simbot:simbot-core", version.ref = "simbot" }
+simbot-logger = { module = "love.forte.simbot.logger:simbot-logger", version.ref = "simbot" }
+simbot-common-annotations = { module = "love.forte.simbot.common:simbot-common-annotations", version.ref = "simbot" }
+simbot-common-apidefinition = { module = "love.forte.simbot.common:simbot-common-apidefinition", version.ref = "simbot" }
+simbot-common-core = { module = "love.forte.simbot.common:simbot-common-core", version.ref = "simbot" }
+simbot-common-suspend-runner = { module = "love.forte.simbot.common:simbot-common-suspend-runner", version.ref = "simbot" }
+
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
+
+kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
+kotlinx-io-core = { module = "org.jetbrains.kotlinx:kotlinx-io-core", version.ref = "kotlinx-io" }
+
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-contentNegotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-client-ws = { module = "io.ktor:ktor-client-websockets", version.ref = "ktor" }
+ktor-client-js = { module = "io.ktor:ktor-client-js", version.ref = "ktor" }
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktor-client-java = { module = "io.ktor:ktor-client-java", version.ref = "ktor" }
+ktor-client-winhttp = { module = "io.ktor:ktor-client-winhttp", version.ref = "ktor" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
+ktor-serialization-kotlinxJson = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+log4j-api = { module = "org.apache.logging.log4j:log4j-api", version.ref = "log4j" }
+log4j-core = { module = "org.apache.logging.log4j:log4j-core", version.ref = "log4j" }
+log4j-slf4j2 = { module = "org.apache.logging.log4j:log4j-slf4j2-impl", version.ref = "log4j" }
+
+ksp = { module = "com.google.devtools.ksp:symbol-processing-api", version.ref = "ksp" }
+codegentle-ksp = { module = "love.forte.codegentle:codegentle-kotlin-ksp", version.ref = "codegentle" }
+
+[plugins]
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+vanniktech-maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish-plugin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

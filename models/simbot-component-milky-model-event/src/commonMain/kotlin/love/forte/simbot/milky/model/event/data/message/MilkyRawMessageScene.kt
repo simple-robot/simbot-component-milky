@@ -21,44 +21,32 @@
  *
  */
 
-package love.forte.simbot.milky.model.event
+package love.forte.simbot.milky.model.event.data.message
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import love.forte.simbot.milky.model.event.data.MilkyRawEventData
 
 /**
- * Milky 基础事件结构体。
- *
- * [MilkyRawEvent] 类型及其所有子类型均为底层用于数据交互的原始数据类，
- * 除了序列化以外不应直接通过构造函数构造它们。
- *
- * 参考：[Milky 文档: 结构体 > 事件](https://milky.ntqqrev.org/struct/Event)
- * @author Forte Scarlet
+ * Milky 事件内使用的消息场景枚举。
  */
 @Serializable
-public open class MilkyRawEvent<D : MilkyRawEventData> internal constructor(
+public enum class MilkyRawMessageScene {
     /**
-     * 类型区分字段
+     * 好友会话
      */
-    @SerialName("event_type")
-    public val eventType: String,
+    @SerialName("friend")
+    FRIEND,
+
     /**
-     * 事件 Unix 时间戳（秒）
+     * 群会话
      */
-    public val time: Long,
+    @SerialName("group")
+    GROUP,
+
     /**
-     * 机器人 QQ 号
+     * 临时会话
      */
-    @SerialName("self_id")
-    public val selfId: Long,
-    /**
-     * 事件内容体。
-     * [data] 在不同的 [eventType] 下的具体类型不同。
-     */
-    public val data: D,
-) {
-    override fun toString(): String {
-        return "MilkyRawEvent(eventType='$eventType', time=$time, selfId=$selfId, data=$data)"
-    }
+    @SerialName("temp")
+    TEMP,
+
 }

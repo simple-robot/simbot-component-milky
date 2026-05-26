@@ -21,44 +21,47 @@
  *
  */
 
-package love.forte.simbot.milky.model.event
+package love.forte.simbot.milky.model.event.data.friend
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import love.forte.simbot.milky.model.event.MilkyEventModelConstructor
 import love.forte.simbot.milky.model.event.data.MilkyRawEventData
+import love.forte.simbot.milky.model.event.data.MilkyRawEventDataMarker
 
 /**
- * Milky 基础事件结构体。
+ * [friend_request 好友请求事件](https://milky.ntqqrev.org/struct/Event#type-friend_request).
  *
- * [MilkyRawEvent] 类型及其所有子类型均为底层用于数据交互的原始数据类，
- * 除了序列化以外不应直接通过构造函数构造它们。
- *
- * 参考：[Milky 文档: 结构体 > 事件](https://milky.ntqqrev.org/struct/Event)
- * @author Forte Scarlet
+ * @see love.forte.simbot.milky.model.event.MilkyRawEvent
  */
+@ConsistentCopyVisibility
 @Serializable
-public open class MilkyRawEvent<D : MilkyRawEventData> internal constructor(
+@SerialName(MilkyRawFriendRequestEventData.SERIAL_NAME)
+@MilkyRawEventDataMarker(eventType = MilkyRawFriendRequestEventData.EVENT_TYPE)
+public data class MilkyRawFriendRequestEventData
+@MilkyEventModelConstructor
+internal constructor(
     /**
-     * 类型区分字段
+     * 申请好友的用户 QQ 号
      */
-    @SerialName("event_type")
-    public val eventType: String,
+    @SerialName("initiator_id")
+    public val initiatorId: Long,
     /**
-     * 事件 Unix 时间戳（秒）
+     * 用户 UID
      */
-    public val time: Long,
+    @SerialName("initiator_uid")
+    public val initiatorUid: String,
     /**
-     * 机器人 QQ 号
+     * 申请附加信息
      */
-    @SerialName("self_id")
-    public val selfId: Long,
+    public val comment: String,
     /**
-     * 事件内容体。
-     * [data] 在不同的 [eventType] 下的具体类型不同。
+     * 申请来源
      */
-    public val data: D,
-) {
-    override fun toString(): String {
-        return "MilkyRawEvent(eventType='$eventType', time=$time, selfId=$selfId, data=$data)"
+    public val via: String,
+) : MilkyRawEventData() {
+    public companion object {
+        public const val EVENT_TYPE: String = "friend_request"
+        public const val SERIAL_NAME: String = SERIAL_NAME_PREFIX + EVENT_TYPE
     }
 }

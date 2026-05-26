@@ -21,44 +21,31 @@
  *
  */
 
-package love.forte.simbot.milky.model.event
+package love.forte.simbot.milky.model.event.data
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import love.forte.simbot.milky.model.event.data.MilkyRawEventData
+import love.forte.simbot.milky.model.event.MilkyEventModelConstructor
 
 /**
- * Milky 基础事件结构体。
+ * [bot_offline 机器人离线事件](https://milky.ntqqrev.org/struct/Event#type-bot_offline).
  *
- * [MilkyRawEvent] 类型及其所有子类型均为底层用于数据交互的原始数据类，
- * 除了序列化以外不应直接通过构造函数构造它们。
- *
- * 参考：[Milky 文档: 结构体 > 事件](https://milky.ntqqrev.org/struct/Event)
- * @author Forte Scarlet
+ * @see love.forte.simbot.milky.model.event.MilkyRawEvent
  */
+@ConsistentCopyVisibility
 @Serializable
-public open class MilkyRawEvent<D : MilkyRawEventData> internal constructor(
+@SerialName(MilkyRawBotOfflineEventData.SERIAL_NAME)
+@MilkyRawEventDataMarker(eventType = MilkyRawBotOfflineEventData.EVENT_TYPE)
+public data class MilkyRawBotOfflineEventData
+@MilkyEventModelConstructor
+internal constructor(
     /**
-     * 类型区分字段
+     * 离线原因
      */
-    @SerialName("event_type")
-    public val eventType: String,
-    /**
-     * 事件 Unix 时间戳（秒）
-     */
-    public val time: Long,
-    /**
-     * 机器人 QQ 号
-     */
-    @SerialName("self_id")
-    public val selfId: Long,
-    /**
-     * 事件内容体。
-     * [data] 在不同的 [eventType] 下的具体类型不同。
-     */
-    public val data: D,
-) {
-    override fun toString(): String {
-        return "MilkyRawEvent(eventType='$eventType', time=$time, selfId=$selfId, data=$data)"
+    public val reason: String,
+) : MilkyRawEventData() {
+    public companion object {
+        public const val EVENT_TYPE: String = "bot_offline"
+        public const val SERIAL_NAME: String = SERIAL_NAME_PREFIX + EVENT_TYPE
     }
 }

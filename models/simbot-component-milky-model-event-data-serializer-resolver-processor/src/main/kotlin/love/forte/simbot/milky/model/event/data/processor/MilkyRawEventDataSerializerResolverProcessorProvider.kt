@@ -21,30 +21,16 @@
  *
  */
 
-pluginManagement {
-    repositories {
-        mavenCentral()
-        gradlePluginPortal()
-    }
+package love.forte.simbot.milky.model.event.data.processor
+
+import com.google.devtools.ksp.processing.SymbolProcessor
+import com.google.devtools.ksp.processing.SymbolProcessorEnvironment
+import com.google.devtools.ksp.processing.SymbolProcessorProvider
+
+/**
+ * Provider for [MilkyRawEventDataSerializerResolverProcessor].
+ */
+public class MilkyRawEventDataSerializerResolverProcessorProvider : SymbolProcessorProvider {
+    override fun create(environment: SymbolProcessorEnvironment): SymbolProcessor =
+        MilkyRawEventDataSerializerResolverProcessor(environment)
 }
-
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
-}
-
-dependencyResolutionManagement {
-    @Suppress("UnstableApiUsage")
-    repositories {
-        mavenCentral()
-    }
-}
-
-rootProject.name = "simbot-component-milky"
-
-include("models:simbot-component-milky-model-common")
-include("models:simbot-component-milky-model-api")
-include("models:simbot-component-milky-model-event")
-include("models:simbot-component-milky-model-event-data-serializer-resolver-processor")
-include("models:simbot-component-milky-model-entity")
-include(":simbot-component-milky-api")
-include(":simbot-component-milky-core")
