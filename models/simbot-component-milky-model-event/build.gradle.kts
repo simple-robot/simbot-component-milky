@@ -33,9 +33,13 @@ plugins {
 description = "Shared model definitions for simbot-component-milky."
 
 kotlin {
+    compilerOptions {
+        optIn.add("kotlin.ExperimentalVersionOverloading")
+    }
+
     @OptIn(ExperimentalAbiValidation::class)
     abiValidation {
-        filters.excluded.annotatedWith.addAll(
+        filters.exclude.annotatedWith.addAll(
             "love.forte.simbot.milky.model.event.MilkyEventModelConstructor",
         )
     }
@@ -48,7 +52,6 @@ kotlin {
                 api(project(":models:simbot-component-milky-model-common"))
                 api(libs.kotlinx.serialization.core)
                 api(libs.kotlinx.serialization.json)
-                api(libs.kotlinx.datetime)
             }
         }
     }

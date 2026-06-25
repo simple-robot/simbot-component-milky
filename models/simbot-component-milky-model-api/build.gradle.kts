@@ -33,7 +33,6 @@ kotlin {
             api(project(":models:simbot-component-milky-model-common"))
             api(libs.kotlinx.serialization.core)
             api(libs.kotlinx.serialization.json)
-            api(libs.kotlinx.datetime)
         }
     }
 }
