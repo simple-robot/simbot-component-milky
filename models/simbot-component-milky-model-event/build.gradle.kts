@@ -35,6 +35,7 @@ description = "Shared model definitions for simbot-component-milky."
 kotlin {
     compilerOptions {
         optIn.add("kotlin.ExperimentalVersionOverloading")
+        freeCompilerArgs.add("-Xconsistent-data-class-copy-visibility")
     }
 
     @OptIn(ExperimentalAbiValidation::class)

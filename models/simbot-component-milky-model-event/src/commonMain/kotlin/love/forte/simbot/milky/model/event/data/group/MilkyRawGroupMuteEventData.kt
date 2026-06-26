@@ -34,7 +34,6 @@ import love.forte.simbot.milky.model.event.data.MilkyRawEventDataMarker
  *
  * @see love.forte.simbot.milky.model.event.MilkyRawEvent
  */
-@ConsistentCopyVisibility
 @Serializable
 @SerialName(MilkyRawGroupMuteEventData.SERIAL_NAME)
 @MilkyRawEventDataMarker(eventType = MilkyRawGroupMuteEventData.EVENT_TYPE)

@@ -37,4 +37,6 @@ dependencies {
     implementation(kotlin("serialization", kotlinVersion))
     implementation(libs.dokka.plugin)
     implementation(libs.maven.publish)
+    // suspend transform
+    implementation(libs.suspend.transform.gradle)
 }

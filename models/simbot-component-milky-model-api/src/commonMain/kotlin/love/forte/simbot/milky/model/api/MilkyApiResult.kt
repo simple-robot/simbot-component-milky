@@ -93,4 +93,28 @@ public class MilkyApiResult<out T : Any> private constructor(
         public const val SUCCESS_RETCODE: Int = 0
 
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is MilkyApiResult<*>) return false
+
+        if (retcode != other.retcode) return false
+        if (status != other.status) return false
+        if (message != other.message) return false
+        if (data != other.data) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = retcode
+        result = 31 * result + status.hashCode()
+        result = 31 * result + (message?.hashCode() ?: 0)
+        result = 31 * result + (data?.hashCode() ?: 0)
+        return result
+    }
+
+    override fun toString(): String {
+        return "MilkyApiResult(data=$data, status='$status', retcode=$retcode, message=$message)"
+    }
 }

@@ -28,7 +28,7 @@ plugins {
     id("com.vanniktech.maven.publish")
 }
 
-group = P.ComponentMilky.group
+group = P.ComponentMilky.GROUP
 version = P.ComponentMilky.version
 
 kotlin {
@@ -37,7 +37,7 @@ kotlin {
 
     configKotlinJvm()
 
-    js(IR) {
+    js {
         configJs()
     }
 
@@ -75,8 +75,8 @@ mavenPublishing {
 
     pom {
         name.set(project.provider { project.name })
-        description.set(project.provider { project.description ?: P.ComponentMilky.description })
-        url.set(P.ComponentMilky.homepage)
+        description.set(project.provider { project.description ?: P.ComponentMilky.DESCRIPTION })
+        url.set(P.ComponentMilky.HOMEPAGE)
 
         licenses {
             P.ComponentMilky.licenses.forEach { license ->
@@ -99,14 +99,14 @@ mavenPublishing {
         }
 
         scm {
-            url.set(P.ComponentMilky.homepage)
-            connection.set("scm:git:${P.ComponentMilky.homepage}.git")
+            url.set(P.ComponentMilky.HOMEPAGE)
+            connection.set("scm:git:${P.ComponentMilky.HOMEPAGE}.git")
             developerConnection.set("scm:git:ssh://git@github.com/simple-robot/simbot-component-milky.git")
         }
 
         issueManagement {
             system.set("GitHub Issues")
-            url.set("${P.ComponentMilky.homepage}/issues")
+            url.set("${P.ComponentMilky.HOMEPAGE}/issues")
         }
     }
 }

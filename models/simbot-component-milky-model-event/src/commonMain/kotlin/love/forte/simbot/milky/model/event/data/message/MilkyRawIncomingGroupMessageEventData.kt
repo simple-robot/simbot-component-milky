@@ -35,7 +35,6 @@ import love.forte.simbot.milky.model.event.MilkyEventModelConstructor
  *
  * @author Forte Scarlet
  */
-@ConsistentCopyVisibility
 @Serializable
 @SerialName(MilkyRawIncomingGroupMessageEventData.SERIAL_NAME)
 @MilkyRawIncomingMessageEventDataMarker(MilkyRawIncomingGroupMessageEventData.MESSAGE_SCENE)

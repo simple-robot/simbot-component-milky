@@ -35,6 +35,8 @@ plugins {
 dependencyResolutionManagement {
     @Suppress("UnstableApiUsage")
     repositories {
+        // TODO 临时的
+        mavenLocal()
         mavenCentral()
     }
 }

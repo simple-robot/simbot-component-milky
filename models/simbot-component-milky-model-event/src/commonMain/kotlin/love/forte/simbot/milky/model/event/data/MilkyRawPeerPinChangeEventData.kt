@@ -33,7 +33,6 @@ import love.forte.simbot.milky.model.event.data.message.MilkyRawMessageScene
  *
  * @see love.forte.simbot.milky.model.event.MilkyRawEvent
  */
-@ConsistentCopyVisibility
 @Serializable
 @SerialName(MilkyRawPeerPinChangeEventData.SERIAL_NAME)
 @MilkyRawEventDataMarker(eventType = MilkyRawPeerPinChangeEventData.EVENT_TYPE)

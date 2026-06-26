@@ -71,7 +71,7 @@ fun DokkaSourceSetSpec.configSourceLink(project: Project) {
     sourceLink {
         localDirectory.set(File(project.projectDir, "src"))
         val relativeTo = project.projectDir.relativeTo(project.rootProject.projectDir).toString().replace('\\', '/')
-        remoteUrl.set(URI.create("${P.ComponentMilky.homepage}/tree/main/$relativeTo/src"))
+        remoteUrl.set(URI.create("${P.ComponentMilky.HOMEPAGE}/tree/main/$relativeTo/src"))
         remoteLineSuffix.set("#L")
     }
 }
@@ -107,5 +107,5 @@ fun DokkaHtmlPluginParameters.configHtmlCustoms(project: Project) {
     )
     separateInheritedMembers.set(true)
     mergeImplicitExpectActualDeclarations.set(true)
-    homepageLink.set(P.ComponentMilky.homepage)
+    homepageLink.set(P.ComponentMilky.HOMEPAGE)
 }

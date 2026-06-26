@@ -21,34 +21,18 @@
  *
  */
 
-import java.time.OffsetDateTime
-import java.time.format.DateTimeFormatter
-
 plugins {
     idea
     id("org.jetbrains.dokka")
 }
 
-group = P.ComponentMilky.group
-version = P.ComponentMilky.version
-description = P.ComponentMilky.description
-
-repositories {
-    mavenCentral()
-}
-
 allprojects {
-    group = P.ComponentMilky.group
+    group = P.ComponentMilky.GROUP
     version = P.ComponentMilky.version
-    description = P.ComponentMilky.description
+    description = P.ComponentMilky.DESCRIPTION
 }
 
-subprojects {
-    repositories {
-        mavenCentral()
-    }
-}
-
+// TODO 手写吗？
 dependencies {
     dokka(project(":models:simbot-component-milky-model-common"))
     dokka(project(":models:simbot-component-milky-model-api"))
@@ -69,31 +53,5 @@ dokka {
 
     pluginsConfiguration.html {
         configHtmlCustoms(project)
-    }
-}
-
-tasks.register("createChangelog") {
-    group = "documentation"
-    description = "Create a lightweight changelog file for the current version tag."
-
-    val outputDir = layout.projectDirectory.dir(".changelog")
-    outputs.dir(outputDir)
-
-    doLast {
-        val versionTag = "v${project.version}"
-        val file = outputDir.file("$versionTag.md").asFile
-        file.parentFile.mkdirs()
-        file.writeText(
-            """
-            # $versionTag
-            
-            Generated at ${
-                OffsetDateTime.now().format(DateTimeFormatter.ISO_OFFSET_DATE_TIME)
-            }.
-            
-            - Repository: ${P.ComponentMilky.homepage}
-            - Version: ${project.version}
-            """.trimIndent() + "\n"
-        )
     }
 }

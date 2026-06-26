@@ -31,7 +31,6 @@ import love.forte.simbot.milky.model.event.MilkyEventModelConstructor
  * [friend 好友消息](https://milky.ntqqrev.org/struct/IncomingMessage#type-friend)
  * @author Forte Scarlet
  */
-@ConsistentCopyVisibility
 @Serializable
 @SerialName(MilkyRawIncomingFriendMessageEventData.SERIAL_NAME)
 @MilkyRawIncomingMessageEventDataMarker(MilkyRawIncomingFriendMessageEventData.MESSAGE_SCENE)

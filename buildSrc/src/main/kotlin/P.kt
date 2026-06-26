@@ -35,18 +35,18 @@ data class LicenseMeta(
 
 object P {
     object ComponentMilky {
-        const val group = "love.forte.simbot.component"
-        const val description = "Simple Robot framework component for the Milky platform."
-        const val homepage = "https://github.com/simple-robot/simbot-component-milky"
+        const val GROUP = "love.forte.simbot.component"
+        const val DESCRIPTION = "Simple Robot framework component for the Milky platform."
+        const val HOMEPAGE = "https://github.com/simple-robot/simbot-component-milky"
         const val dokkaModuleName = "Simple Robot Component | Milky"
-        const val versionName = "5.0.0-Preview1"
-        const val nextVersionName = "5.0.0-Preview1"
+        const val VERSION_NAME = "0.0.1"
+        const val NEXT_VERSION_NAME = "0.0.1"
 
         val version: String
             get() = if (isSnapshot()) {
-                "$nextVersionName-SNAPSHOT"
+                "$NEXT_VERSION_NAME-SNAPSHOT"
             } else {
-                versionName
+                VERSION_NAME
             }
 
         val developers = listOf(
