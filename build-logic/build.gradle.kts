@@ -21,34 +21,16 @@
  *
  */
 
-pluginManagement {
-    includeBuild("build-logic")
-
-    repositories {
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
-
 plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+    `kotlin-dsl`
 }
 
-dependencyResolutionManagement {
-    @Suppress("UnstableApiUsage")
-    repositories {
-        // TODO 临时的
-        mavenLocal()
-        mavenCentral()
-    }
+val kotlinVersion: String = libs.versions.kotlin.get()
+
+dependencies {
+    implementation(kotlin("gradle-plugin", kotlinVersion))
+    implementation(kotlin("serialization", kotlinVersion))
+    implementation(libs.dokka.plugin)
+    implementation(libs.maven.publish)
+    implementation(libs.suspend.transform.gradle)
 }
-
-rootProject.name = "simbot-component-milky"
-
-include("models:simbot-component-milky-model-common")
-include("models:simbot-component-milky-model-api")
-include("models:simbot-component-milky-model-event")
-include("models:simbot-component-milky-model-event-data-serializer-resolver-processor")
-include("models:simbot-component-milky-model-entity")
-include(":simbot-component-milky-api")
-include(":simbot-component-milky-core")

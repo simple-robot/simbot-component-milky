@@ -41,8 +41,7 @@ fun DokkaExtension.configSourceSets(project: Project) {
             VisibilityModifier.Protected,
         )
 
-        val targetCompatibility = project.tasks.withType<JavaCompile>().firstOrNull()?.targetCompatibility
-        when (targetCompatibility) {
+        when (val targetCompatibility = project.tasks.withType<JavaCompile>().firstOrNull()?.targetCompatibility) {
             "1.8" -> jdkVersion.set(8)
             null -> Unit
             else -> jdkVersion.set(targetCompatibility.toInt())
@@ -69,9 +68,9 @@ fun DokkaSourceSetSpec.configModuleMdInclude(project: Project) {
 
 fun DokkaSourceSetSpec.configSourceLink(project: Project) {
     sourceLink {
-        localDirectory.set(File(project.projectDir, "src"))
+        localDirectory.set(project.projectDir)
         val relativeTo = project.projectDir.relativeTo(project.rootProject.projectDir).toString().replace('\\', '/')
-        remoteUrl.set(URI.create("${P.ComponentMilky.HOMEPAGE}/tree/main/$relativeTo/src"))
+        remoteUrl.set(URI.create("${P.ComponentMilky.HOMEPAGE}/tree/main/$relativeTo"))
         remoteLineSuffix.set("#L")
     }
 }
@@ -103,7 +102,7 @@ fun DokkaHtmlPluginParameters.configHtmlCustoms(project: Project) {
 
     val now = Year.now().value
     footerMessage.set(
-        "© 2024-$now <a href='https://github.com/simple-robot'>Simple Robot</a>. All rights reserved."
+        "© 2026-$now <a href='https://github.com/simple-robot'>Simple Robot</a>. All rights reserved."
     )
     separateInheritedMembers.set(true)
     mergeImplicitExpectActualDeclarations.set(true)

@@ -21,34 +21,36 @@
  *
  */
 
-pluginManagement {
-    includeBuild("build-logic")
-
-    repositories {
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
-
 plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+    kotlin("jvm")
+    id("org.jetbrains.dokka")
+    id("com.vanniktech.maven.publish")
 }
 
-dependencyResolutionManagement {
-    @Suppress("UnstableApiUsage")
-    repositories {
-        // TODO 临时的
-        mavenLocal()
-        mavenCentral()
+group = P.ComponentMilky.GROUP
+version = P.ComponentMilky.version
+
+kotlin {
+    explicitApi()
+    configKotlinJvm()
+}
+
+dokka {
+    moduleName = project.name
+
+    dokkaPublications.all {
+        if (isSimbotLocal()) {
+            offlineMode = true
+        }
+    }
+
+    configSourceSets(project)
+
+    pluginsConfiguration.html {
+        configHtmlCustoms(project)
     }
 }
 
-rootProject.name = "simbot-component-milky"
-
-include("models:simbot-component-milky-model-common")
-include("models:simbot-component-milky-model-api")
-include("models:simbot-component-milky-model-event")
-include("models:simbot-component-milky-model-event-data-serializer-resolver-processor")
-include("models:simbot-component-milky-model-entity")
-include(":simbot-component-milky-api")
-include(":simbot-component-milky-core")
+mavenPublishing {
+    configureMilkyPublishing(project)
+}

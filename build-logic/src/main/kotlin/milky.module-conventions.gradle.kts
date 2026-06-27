@@ -67,46 +67,5 @@ dokka {
 }
 
 mavenPublishing {
-    publishToMavenCentral(automaticRelease = true)
-    if (!isSimbotLocal()) {
-        signAllPublications()
-    }
-    coordinates(project.group.toString(), project.name, project.version.toString())
-
-    pom {
-        name.set(project.provider { project.name })
-        description.set(project.provider { project.description ?: P.ComponentMilky.DESCRIPTION })
-        url.set(P.ComponentMilky.HOMEPAGE)
-
-        licenses {
-            P.ComponentMilky.licenses.forEach { license ->
-                license {
-                    name.set(license.name)
-                    url.set(license.url)
-                }
-            }
-        }
-
-        developers {
-            P.ComponentMilky.developers.forEach { developer ->
-                developer {
-                    id.set(developer.id)
-                    name.set(developer.name)
-                    email.set(developer.email)
-                    url.set(developer.url)
-                }
-            }
-        }
-
-        scm {
-            url.set(P.ComponentMilky.HOMEPAGE)
-            connection.set("scm:git:${P.ComponentMilky.HOMEPAGE}.git")
-            developerConnection.set("scm:git:ssh://git@github.com/simple-robot/simbot-component-milky.git")
-        }
-
-        issueManagement {
-            system.set("GitHub Issues")
-            url.set("${P.ComponentMilky.HOMEPAGE}/issues")
-        }
-    }
+    configureMilkyPublishing(project)
 }

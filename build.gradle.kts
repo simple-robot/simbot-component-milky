@@ -22,36 +22,5 @@
  */
 
 plugins {
-    idea
-    id("org.jetbrains.dokka")
-}
-
-allprojects {
-    group = P.ComponentMilky.GROUP
-    version = P.ComponentMilky.version
-    description = P.ComponentMilky.DESCRIPTION
-}
-
-// TODO 手写吗？
-dependencies {
-    dokka(project(":models:simbot-component-milky-model-common"))
-    dokka(project(":models:simbot-component-milky-model-api"))
-    dokka(project(":models:simbot-component-milky-model-event"))
-    dokka(project(":simbot-component-milky-api"))
-    dokka(project(":simbot-component-milky-core"))
-}
-
-dokka {
-    moduleName = P.ComponentMilky.dokkaModuleName
-    dokkaPublications.all {
-        if (isSimbotLocal()) {
-            offlineMode = true
-        }
-    }
-
-    configSourceSets(project)
-
-    pluginsConfiguration.html {
-        configHtmlCustoms(project)
-    }
+    id("milky.root-conventions")
 }

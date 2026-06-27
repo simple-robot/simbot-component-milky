@@ -21,22 +21,24 @@
  *
  */
 
-plugins {
-    `kotlin-dsl`
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
 }
 
-repositories {
-    mavenCentral()
-    gradlePluginPortal()
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+
+    versionCatalogs {
+        create("libs") {
+            from(files("../gradle/libs.versions.toml"))
+        }
+    }
 }
 
-val kotlinVersion: String = libs.versions.kotlin.get()
-
-dependencies {
-    implementation(kotlin("gradle-plugin", kotlinVersion))
-    implementation(kotlin("serialization", kotlinVersion))
-    implementation(libs.dokka.plugin)
-    implementation(libs.maven.publish)
-    // suspend transform
-    implementation(libs.suspend.transform.gradle)
-}
+rootProject.name = "simbot-component-milky-build-logic"

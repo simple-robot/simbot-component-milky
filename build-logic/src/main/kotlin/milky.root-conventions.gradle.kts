@@ -21,10 +21,36 @@
  *
  */
 
-dependencyResolutionManagement {
-    versionCatalogs {
-        create("libs") {
-            from(files("../gradle/libs.versions.toml"))
+plugins {
+    idea
+    id("org.jetbrains.dokka")
+}
+
+allprojects {
+    group = P.ComponentMilky.GROUP
+    version = P.ComponentMilky.version
+    description = P.ComponentMilky.DESCRIPTION
+}
+
+subprojects {
+    afterEvaluate {
+        if (plugins.hasPlugin("org.jetbrains.dokka")) {
+            rootProject.dependencies.add("dokka", project(path))
         }
+    }
+}
+
+dokka {
+    moduleName = P.ComponentMilky.dokkaModuleName
+    dokkaPublications.all {
+        if (isSimbotLocal()) {
+            offlineMode = true
+        }
+    }
+
+    configSourceSets(project)
+
+    pluginsConfiguration.html {
+        configHtmlCustoms(project)
     }
 }
