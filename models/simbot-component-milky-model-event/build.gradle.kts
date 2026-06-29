@@ -1,5 +1,4 @@
 import com.google.devtools.ksp.gradle.KspAATask
-import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
 
 /*
@@ -51,6 +50,7 @@ kotlin {
 
             dependencies {
                 api(project(":models:simbot-component-milky-model-common"))
+                api(libs.simbot.common.collection)
                 api(libs.kotlinx.serialization.core)
                 api(libs.kotlinx.serialization.json)
             }

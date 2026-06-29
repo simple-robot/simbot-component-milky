@@ -26,7 +26,7 @@ package love.forte.simbot.milky.model.event.data.message
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import love.forte.simbot.milky.model.event.MilkyEventModelConstructor
-import love.forte.simbot.milky.model.event.data.message.segment.MilkyRawIncomingMessageSegment
+import love.forte.simbot.milky.model.event.data.message.segment.incoming.MilkyRawIncomingMessageSegment
 
 /**
  * [friend 好友消息](https://milky.ntqqrev.org/struct/IncomingMessage#type-friend)

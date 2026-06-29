@@ -31,6 +31,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             api(project(":models:simbot-component-milky-model-api"))
+            api(project(":models:simbot-component-milky-model-entity"))
             // api(project(":models:simbot-component-milky-model-event"))
             // api(libs.simbot.api)
             api(libs.simbot.common.annotations)

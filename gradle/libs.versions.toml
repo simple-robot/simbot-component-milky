@@ -24,6 +24,7 @@ simbot-logger = { module = "love.forte.simbot.logger:simbot-logger", version.ref
 simbot-common-annotations = { module = "love.forte.simbot.common:simbot-common-annotations", version.ref = "simbot" }
 simbot-common-apidefinition = { module = "love.forte.simbot.common:simbot-common-apidefinition", version.ref = "simbot" }
 simbot-common-core = { module = "love.forte.simbot.common:simbot-common-core", version.ref = "simbot" }
+simbot-common-collection = { module = "love.forte.simbot.common:simbot-common-collection", version.ref = "simbot" }
 simbot-common-suspend-runner = { module = "love.forte.simbot.common:simbot-common-suspend-runner", version.ref = "simbot" }
 
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }

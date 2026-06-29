@@ -21,7 +21,13 @@
  *
  */
 
-package love.forte.simbot.milky.model.event.data.message.segment
+package love.forte.simbot.milky.model.api.group
 
-// TODO MilkyRawIncomingMessageSegment 类型定义/实现
-public typealias MilkyRawIncomingMessageSegment = Unit
+/**
+ * [Milky 群聊 API](https://milky.ntqqrev.org/api/group)
+ *
+ * @author Forte Scarlet
+ */
+public interface MilkyGroupModel {
+    // TODO
+}

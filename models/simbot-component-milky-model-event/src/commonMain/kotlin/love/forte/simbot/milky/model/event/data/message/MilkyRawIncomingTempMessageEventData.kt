@@ -26,7 +26,7 @@ package love.forte.simbot.milky.model.event.data.message
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import love.forte.simbot.milky.model.event.MilkyEventModelConstructor
-import love.forte.simbot.milky.model.event.data.message.segment.MilkyRawIncomingMessageSegment
+import love.forte.simbot.milky.model.event.data.message.segment.incoming.MilkyRawIncomingMessageSegment
 
 /**
  * 临时消息的本地最小原始模型。

@@ -31,6 +31,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             api(project(":models:simbot-component-milky-model-common"))
+            api(project(":models:simbot-component-milky-model-entity"))
             api(libs.kotlinx.serialization.core)
             api(libs.kotlinx.serialization.json)
         }

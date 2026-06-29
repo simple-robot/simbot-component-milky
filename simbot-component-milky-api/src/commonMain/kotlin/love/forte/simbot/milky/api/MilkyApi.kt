@@ -3,14 +3,13 @@ package love.forte.simbot.milky.api
 import io.ktor.http.*
 import kotlinx.serialization.json.Json
 import love.forte.simbot.milky.api.MilkyApi.Companion.defaultJson
-import love.forte.simbot.milky.model.api.MilkyApiResult
 
 /**
  * 一个 Milky 的 API。API 总是基于 HTTP 协议与 JSON 格式交互的。
  *
  * [MilkyApi] 主要作为 Milky 的 API 接口定义与数据载体，本身 **不包含** 发起请求等网络/IO的能力。
  *
- * ### API 调用
+ * ## API 调用
  *
  * > NOTE: 以下内容摘抄引用自官方文档。
  *
@@ -107,11 +106,14 @@ import love.forte.simbot.milky.model.api.MilkyApiResult
  * 参考：
  * - [Milky 文档 - 通信](https://milky.ntqqrev.org/guide/communication)
  *
- * @param R 响应结果类型。
+ * ## 请求体
+ *
+ * [MilkyApi] 类型本身不约束任何入参/出参的类型规约，因为站在 API 交互的角度上，它们都是 JSON 字符串进行交互的。
+ * 但进行此类型的实现时，推荐（且内部所有实现均遵循推荐）使用 [TypedMilkyApi]：对出参进行类型范型约束的子类型。
  *
  * @author Forte Scarlet
  */
-public interface MilkyApi<R : Any> {
+public interface MilkyApi {
     /**
      * 请求方式。Milky 的主要请求方式均为 [HttpMethod.Post]。因此默认值为 [HttpMethod.Post]。
      */
@@ -156,22 +158,6 @@ public interface MilkyApi<R : Any> {
      * @return 请求体内容的 JSON 字符串，如果请求体为空则返回 null。
      */
     public fun bodyContent(): String?
-
-    /**
-     * 将返回值的 JSON 解析为目标的预期类型 [MilkyApiResult]。
-     *
-     * @see MilkyApiResult
-     * @param resultJson 返回值的 JSON 字符串。
-     */
-    public fun decodeResult(resultJson: String): MilkyApiResult<R>
-
-    /**
-     * 将返回值内的 `data` 数据的 JSON 解析为目标的预期类型 [R]。
-     *
-     * @see MilkyApiResult.data
-     * @param resultContentJson 返回值内的 `data` 数据的 JSON 字符串。
-     */
-    public fun decodeResultContent(resultContentJson: String): R
 
     public companion object {
         /**

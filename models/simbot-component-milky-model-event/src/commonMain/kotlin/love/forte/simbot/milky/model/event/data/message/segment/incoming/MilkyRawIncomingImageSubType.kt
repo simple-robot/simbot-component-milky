@@ -21,13 +21,25 @@
  *
  */
 
-package love.forte.simbot.milky.model.event.data.message.segment
+package love.forte.simbot.milky.model.event.data.message.segment.incoming
 
-import love.forte.simbot.milky.model.event.data.message.MilkyRawIncomingMessageEventData
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
- * 用于注解处理器对 [MilkyRawIncomingMessageSegment] 序列化器进行解析与处理的标记注解。
+ * Milky 接收图片消息段类型枚举。
  */
-@Retention(AnnotationRetention.BINARY)
-@Target(AnnotationTarget.CLASS)
-public annotation class MilkyRawIncomingMessageSegmentTypeMarker(val type: String)
+@Serializable
+public enum class MilkyRawIncomingImageSubType {
+    /**
+     * 普通图片
+     */
+    @SerialName("normal")
+    NORMAL,
+
+    /**
+     * 表情图片
+     */
+    @SerialName("sticker")
+    STICKER,
+}
