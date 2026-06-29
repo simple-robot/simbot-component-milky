@@ -1,10 +1,10 @@
 /*
  *     Copyright (c) 2026. ForteScarlet.
  *
- *     Project    https://github.com/simple-robot/simbot-component-milky
+ *     Project    https://github.com/simple-robot/simpler-robot
  *     Email      ForteScarlet@163.com
  *
- *     This file is part of simbot-component-milky.
+ *     This file is part of the Simple Robot Library (Alias: simple-robot, simbot, etc.).
  *
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU Lesser General Public License as published by
@@ -16,27 +16,18 @@
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     Lesser GNU General Public License for more details.
  *
- *     You should have received a copy of the Lesser General Public License
+ *     You should have received a copy of the Lesser GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 
-pluginManagement {
-    repositories {
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
+package love.forte.simbot.milky.model.event.data.message.segment
 
-dependencyResolutionManagement {
-    repositories {
-        mavenCentral()
-        gradlePluginPortal()
-    }
+import love.forte.simbot.milky.model.event.data.message.MilkyRawIncomingMessageEventData
 
-    versionCatalogs {
-        create("libs") {
-            from(files("../gradle/libs.versions.toml"))
-        }
-    }
-}
+/**
+ * 用于注解处理器对 [MilkyRawIncomingMessageSegment] 序列化器进行解析与处理的标记注解。
+ */
+@Retention(AnnotationRetention.BINARY)
+@Target(AnnotationTarget.CLASS)
+public annotation class MilkyRawIncomingMessageSegmentTypeMarker(val type: String)
