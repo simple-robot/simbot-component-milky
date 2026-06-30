@@ -24,24 +24,18 @@
 package love.forte.simbot.milky.model.api.system
 
 import kotlinx.serialization.Serializable
-import love.forte.simbot.milky.model.api.MilkyApiModel
 import love.forte.simbot.milky.model.api.MilkyApiModelConstructor
 
 /**
- * [get_login_info 获取登录信息](https://milky.ntqqrev.org/api/system#get_login_info)
- * API 的响应体结构模型（输出参数）。
- *
+ * [set_avatar 设置 QQ 账号头像](https://milky.ntqqrev.org/api/system#set_avatar)
+ * 的请求入参。
  * @author Forte Scarlet
  */
 @Serializable
-public data class MilkyGetLoginInfoResponse
-@MilkyApiModelConstructor internal constructor(
+public data class MilkySetAvatarParam
+@MilkyApiModelConstructor constructor(
     /**
-     * 登录 QQ 号
+     * 头像文件 URI，支持 `file://` `http(s)://` `base64://` 三种格式。
      */
-    val uin: Long,
-    /**
-     * 登录 QQ 昵称
-     */
-    val nickname: String,
-) : MilkyApiModel
+    val uri: String
+)

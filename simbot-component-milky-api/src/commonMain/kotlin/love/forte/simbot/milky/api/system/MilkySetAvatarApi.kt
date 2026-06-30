@@ -23,43 +23,48 @@
 
 package love.forte.simbot.milky.api.system
 
-import kotlinx.serialization.KSerializer
-import love.forte.simbot.milky.api.SerializationBasedTypedMilkyApi
-import love.forte.simbot.milky.model.api.MilkyApiResult
-import love.forte.simbot.milky.model.api.system.MilkyGetLoginInfoResponse
+import love.forte.simbot.milky.api.MilkyApi
+import love.forte.simbot.milky.api.UnitResultMilkyApi
+import love.forte.simbot.milky.model.api.system.MilkySetAvatarParam
 import kotlin.jvm.JvmStatic
 
 /**
- * [get_login_info 获取登录信息](https://milky.ntqqrev.org/api/system#get_login_info)
+ * [set_avatar 设置 QQ 账号头像](https://milky.ntqqrev.org/api/system#set_avatar)
  *
  * @author Forte Scarlet
  */
-public class MilkyGetLoginInfoApi private constructor() :
-    SerializationBasedTypedMilkyApi<MilkyGetLoginInfoResponse>(),
-    MilkySystemApi {
+public class MilkySetAvatarApi private constructor(
+    private val param: MilkySetAvatarParam
+) : UnitResultMilkyApi(), MilkySystemApi {
     override val apiName: String
         get() = API_NAME
 
-    override val contentSerializer: KSerializer<MilkyGetLoginInfoResponse>
-        get() = MilkyGetLoginInfoResponse.serializer()
+    override fun bodyContent(): String =
+        MilkyApi.defaultJson.encodeToString(MilkySetAvatarParam.serializer(), param)
 
-    override val resultSerializer: KSerializer<MilkyApiResult<MilkyGetLoginInfoResponse>>
-        get() = RESULT_DESERIALIZER
-
-    override fun bodyContent(): String? = null
     override fun toString(): String {
-        return "MilkyGetLoginInfoApi(param={})"
+        return "MilkySetAvatarApi(param=$param)"
     }
 
     public companion object {
-        public const val API_NAME: String = "get_login_info"
-        private val RESULT_DESERIALIZER = MilkyApiResult.serializer(MilkyGetLoginInfoResponse.serializer())
-        private val INSTANCE = MilkyGetLoginInfoApi()
+        public const val API_NAME: String = "set_avatar"
 
         /**
-         * 获取 [MilkyGetLoginInfoApi] 实例。
+         * 使用 [MilkySetAvatarParam] 构建 [MilkySetAvatarApi]。
+         *
+         * 注: 代码中不会校验 uri 的合法性，交给 API 服务端校验。
          */
         @JvmStatic
-        public fun instance(): MilkyGetLoginInfoApi = INSTANCE
+        public fun create(param: MilkySetAvatarParam): MilkySetAvatarApi = MilkySetAvatarApi(param)
+
+        /**
+         * 使用 uri 构建 [MilkySetAvatarApi]。
+         *
+         * 注: 代码中不会校验 uri 的合法性，交给 API 服务端校验。
+         *
+         * @param uri 参考 [MilkySetAvatarParam.uri] 的说明。
+         */
+        @JvmStatic
+        public fun create(uri: String): MilkySetAvatarApi = create(MilkySetAvatarParam(uri))
     }
 }

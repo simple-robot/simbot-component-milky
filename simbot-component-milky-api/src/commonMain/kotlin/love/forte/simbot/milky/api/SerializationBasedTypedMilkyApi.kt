@@ -24,10 +24,11 @@
 package love.forte.simbot.milky.api
 
 import kotlinx.serialization.KSerializer
+import kotlinx.serialization.builtins.serializer
 import love.forte.simbot.milky.model.api.MilkyApiResult
 
 /**
- *
+ * 基于 Kotlin Serialization 的 [TypedMilkyApi] 实现。
  * @author Forte Scarlet
  */
 public abstract class SerializationBasedTypedMilkyApi<R : Any> : TypedMilkyApi<R> {
@@ -41,5 +42,19 @@ public abstract class SerializationBasedTypedMilkyApi<R : Any> : TypedMilkyApi<R
 
     override fun decodeResultContent(resultContentJson: String): R {
         return MilkyApi.defaultJson.decodeFromString(contentSerializer, resultContentJson)
+    }
+}
+
+
+public abstract class UnitResultMilkyApi : SerializationBasedTypedMilkyApi<Unit>() {
+    override val contentSerializer: KSerializer<Unit>
+        get() = Unit.serializer()
+
+    override val resultSerializer: KSerializer<MilkyApiResult<Unit>>
+        get() = UNIT_RESULT_DESERIALIZER
+
+    public companion object {
+        internal val UNIT_RESULT_DESERIALIZER: KSerializer<MilkyApiResult<Unit>> =
+            MilkyApiResult.serializer(Unit.serializer())
     }
 }

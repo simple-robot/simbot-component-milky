@@ -28,6 +28,10 @@ plugins {
 description = "Shared model definitions for simbot-component-milky."
 
 kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xconsistent-data-class-copy-visibility")
+    }
+
     sourceSets {
         commonMain.dependencies {
             api(project(":models:simbot-component-milky-model-common"))
