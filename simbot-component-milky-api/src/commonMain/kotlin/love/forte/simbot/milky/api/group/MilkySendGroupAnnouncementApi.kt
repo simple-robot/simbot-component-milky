@@ -26,6 +26,7 @@ package love.forte.simbot.milky.api.group
 import love.forte.simbot.milky.api.MilkyApi
 import love.forte.simbot.milky.api.UnitResultMilkyApi
 import love.forte.simbot.milky.model.api.group.MilkySendGroupAnnouncementParam
+import kotlin.jvm.JvmOverloads
 import kotlin.jvm.JvmStatic
 
 /**
@@ -60,9 +61,10 @@ public class MilkySendGroupAnnouncementApi private constructor(
          * 使用 API 入参字段构建 [MilkySendGroupAnnouncementApi]。
          * @param groupId 群号
          * @param content 公告内容
-         * @param imageUri 公告附带图像文件 URI，支持 file://、http(s)://、base64:// 三种格式
+         * @param imageUri 公告附带图像文件 URI，支持 `file://`、`http(s)://`、`base64://` 三种格式
          */
         @JvmStatic
+        @JvmOverloads
         public fun create(groupId: Long, content: String, imageUri: String? = null): MilkySendGroupAnnouncementApi =
             create(MilkySendGroupAnnouncementParam(groupId, content, imageUri))
     }

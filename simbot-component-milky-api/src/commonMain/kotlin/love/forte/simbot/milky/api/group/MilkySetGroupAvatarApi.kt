@@ -58,7 +58,7 @@ public class MilkySetGroupAvatarApi private constructor(
         /**
          * 使用 API 入参字段构建 [MilkySetGroupAvatarApi]。
          * @param groupId 群号
-         * @param imageUri 头像文件 URI，支持 file://、http(s)://、base64:// 三种格式
+         * @param imageUri 头像文件 URI，支持 `file://`、`http(s)://`、`base64://` 三种格式
          */
         @JvmStatic
         public fun create(groupId: Long, imageUri: String): MilkySetGroupAvatarApi =

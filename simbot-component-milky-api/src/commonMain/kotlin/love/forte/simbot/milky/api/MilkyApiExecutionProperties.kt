@@ -21,13 +21,24 @@
  *
  */
 
-package love.forte.simbot.milky.api.message
+package love.forte.simbot.milky.api
 
-import love.forte.simbot.milky.api.MilkyApi
+import io.ktor.http.*
 
 /**
- * [Milky 消息 API](https://milky.ntqqrev.org/api/message)
+ * Milky API 执行器的执行所需属性。
  *
  * @author Forte Scarlet
  */
-public interface MilkyMessageApi : MilkyApi
+public interface MilkyApiExecutionProperties {
+    /**
+     *  API 的基础 URL。
+     */
+    public val baseUrl: Url
+
+    /**
+     * 用于访问 API 的令牌。
+     */
+    public val accessToken: String?
+
+}

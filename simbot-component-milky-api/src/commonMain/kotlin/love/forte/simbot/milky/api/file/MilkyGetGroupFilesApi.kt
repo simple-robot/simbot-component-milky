@@ -29,6 +29,7 @@ import love.forte.simbot.milky.api.SerializationBasedTypedMilkyApi
 import love.forte.simbot.milky.model.api.MilkyApiResult
 import love.forte.simbot.milky.model.api.file.MilkyGetGroupFilesParam
 import love.forte.simbot.milky.model.api.file.MilkyGetGroupFilesResponse
+import kotlin.jvm.JvmOverloads
 import kotlin.jvm.JvmStatic
 
 /**
@@ -73,6 +74,7 @@ public class MilkyGetGroupFilesApi private constructor(
          * @param parentFolderId 父文件夹 ID
          */
         @JvmStatic
+        @JvmOverloads
         public fun create(groupId: Long, parentFolderId: String = "/"): MilkyGetGroupFilesApi =
             create(MilkyGetGroupFilesParam(groupId, parentFolderId))
     }

@@ -40,6 +40,7 @@ kotlin {
             // api(project(":models:simbot-component-milky-model-event"))
             // api(libs.simbot.api)
             api(libs.simbot.common.annotations)
+            //api(libs.simbot.common.time)
             // TODO 这个还得完善
             // api(libs.simbot.common.apidefinition)
             api(libs.kotlinx.coroutines.core)

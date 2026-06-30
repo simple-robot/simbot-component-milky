@@ -26,6 +26,7 @@ package love.forte.simbot.milky.api.group
 import love.forte.simbot.milky.api.MilkyApi
 import love.forte.simbot.milky.api.UnitResultMilkyApi
 import love.forte.simbot.milky.model.api.group.MilkySetGroupEssenceMessageParam
+import kotlin.jvm.JvmOverloads
 import kotlin.jvm.JvmStatic
 
 /**
@@ -63,6 +64,7 @@ public class MilkySetGroupEssenceMessageApi private constructor(
          * @param isSet 是否设置为精华消息，false 表示取消精华
          */
         @JvmStatic
+        @JvmOverloads
         public fun create(groupId: Long, messageSeq: Long, isSet: Boolean = true): MilkySetGroupEssenceMessageApi =
             create(MilkySetGroupEssenceMessageParam(groupId, messageSeq, isSet))
     }

@@ -43,7 +43,7 @@ public class MilkySendGroupAnnouncementParam(
      */
     public val content: String,
     /**
-     * 公告附带图像文件 URI，支持 file://、http(s)://、base64:// 三种格式
+     * 公告附带图像文件 URI，支持 `file://`、`http(s)://`、`base64://` 三种格式
      */
     @SerialName("image_uri")
     public val imageUri: String? = null,

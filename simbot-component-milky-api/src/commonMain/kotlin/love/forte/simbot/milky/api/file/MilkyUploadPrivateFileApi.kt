@@ -71,7 +71,7 @@ public class MilkyUploadPrivateFileApi private constructor(
         /**
          * 使用 API 入参字段构建 [MilkyUploadPrivateFileApi]。
          * @param userId 好友 QQ 号
-         * @param fileUri 文件 URI，支持 file://、http(s)://、base64:// 三种格式
+         * @param fileUri 文件 URI，支持 `file://`、`http(s)://`、`base64://` 三种格式
          * @param fileName 文件名称
          */
         @JvmStatic

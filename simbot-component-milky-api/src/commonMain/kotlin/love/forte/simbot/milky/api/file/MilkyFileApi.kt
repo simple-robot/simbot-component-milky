@@ -23,11 +23,11 @@
 
 package love.forte.simbot.milky.api.file
 
+import love.forte.simbot.milky.api.MilkyApi
+
 /**
  * [Milky 文件 API](https://milky.ntqqrev.org/api/file)
  *
  * @author Forte Scarlet
  */
-public interface MilkyFileApi {
-    // TODO
-}
+public interface MilkyFileApi : MilkyApi

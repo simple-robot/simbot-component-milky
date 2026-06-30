@@ -29,6 +29,7 @@ import love.forte.simbot.milky.api.SerializationBasedTypedMilkyApi
 import love.forte.simbot.milky.model.api.MilkyApiResult
 import love.forte.simbot.milky.model.api.system.MilkyGetGroupMemberInfoParam
 import love.forte.simbot.milky.model.api.system.MilkyGetGroupMemberInfoResponse
+import kotlin.jvm.JvmOverloads
 import kotlin.jvm.JvmStatic
 
 /**
@@ -75,6 +76,7 @@ public class MilkyGetGroupMemberInfoApi private constructor(
          * @param noCache 是否强制不使用缓存
          */
         @JvmStatic
+        @JvmOverloads
         public fun create(groupId: Long, userId: Long, noCache: Boolean = false): MilkyGetGroupMemberInfoApi =
             create(MilkyGetGroupMemberInfoParam(groupId, userId, noCache))
     }

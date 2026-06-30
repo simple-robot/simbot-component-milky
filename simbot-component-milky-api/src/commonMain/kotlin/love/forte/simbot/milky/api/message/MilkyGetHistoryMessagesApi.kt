@@ -84,5 +84,17 @@ public class MilkyGetHistoryMessagesApi private constructor(
             limit: Int = 20
         ): MilkyGetHistoryMessagesApi =
             create(MilkyGetHistoryMessagesParam(messageScene, peerId, startMessageSeq, limit))
+
+        /**
+         * 使用 API 入参字段构建 [MilkyGetHistoryMessagesApi]。
+         * @param messageScene 消息场景
+         * @param peerId 好友 QQ 号或群号
+         */
+        @JvmStatic
+        public fun create(
+            messageScene: MilkyMessageScene,
+            peerId: Long,
+        ): MilkyGetHistoryMessagesApi =
+            create(MilkyGetHistoryMessagesParam(messageScene, peerId))
     }
 }

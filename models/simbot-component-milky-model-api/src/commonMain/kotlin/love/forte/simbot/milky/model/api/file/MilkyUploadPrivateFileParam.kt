@@ -39,7 +39,7 @@ public class MilkyUploadPrivateFileParam(
     @SerialName("user_id")
     public val userId: Long,
     /**
-     * 文件 URI，支持 file://、http(s)://、base64:// 三种格式
+     * 文件 URI，支持 `file://`、`http(s)://`、`base64://` 三种格式
      */
     @SerialName("file_uri")
     public val fileUri: String,

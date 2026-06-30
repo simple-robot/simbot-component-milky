@@ -22,6 +22,7 @@ simbot-api = { module = "love.forte.simbot:simbot-api", version.ref = "simbot" }
 simbot-core = { module = "love.forte.simbot:simbot-core", version.ref = "simbot" }
 simbot-logger = { module = "love.forte.simbot.logger:simbot-logger", version.ref = "simbot" }
 simbot-common-annotations = { module = "love.forte.simbot.common:simbot-common-annotations", version.ref = "simbot" }
+simbot-common-time = { module = "love.forte.simbot.common:simbot-common-time", version.ref = "simbot" }
 simbot-common-apidefinition = { module = "love.forte.simbot.common:simbot-common-apidefinition", version.ref = "simbot" }
 simbot-common-core = { module = "love.forte.simbot.common:simbot-common-core", version.ref = "simbot" }
 simbot-common-collection = { module = "love.forte.simbot.common:simbot-common-collection", version.ref = "simbot" }

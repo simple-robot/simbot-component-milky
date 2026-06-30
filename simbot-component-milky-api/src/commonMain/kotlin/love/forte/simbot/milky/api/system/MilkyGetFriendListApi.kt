@@ -29,6 +29,7 @@ import love.forte.simbot.milky.api.SerializationBasedTypedMilkyApi
 import love.forte.simbot.milky.model.api.MilkyApiResult
 import love.forte.simbot.milky.model.api.system.MilkyGetFriendListParam
 import love.forte.simbot.milky.model.api.system.MilkyGetFriendListResponse
+import kotlin.jvm.JvmOverloads
 import kotlin.jvm.JvmStatic
 
 /**
@@ -72,6 +73,7 @@ public class MilkyGetFriendListApi private constructor(
          * @param noCache 是否强制不使用缓存
          */
         @JvmStatic
+        @JvmOverloads
         public fun create(noCache: Boolean = false): MilkyGetFriendListApi = create(MilkyGetFriendListParam(noCache))
     }
 }

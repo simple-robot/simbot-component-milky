@@ -26,6 +26,7 @@ package love.forte.simbot.milky.api.group
 import love.forte.simbot.milky.api.MilkyApi
 import love.forte.simbot.milky.api.UnitResultMilkyApi
 import love.forte.simbot.milky.model.api.group.MilkySetGroupWholeMuteParam
+import kotlin.jvm.JvmOverloads
 import kotlin.jvm.JvmStatic
 
 /**
@@ -62,6 +63,7 @@ public class MilkySetGroupWholeMuteApi private constructor(
          * @param isMute 是否开启全员禁言，false 表示取消全员禁言
          */
         @JvmStatic
+        @JvmOverloads
         public fun create(groupId: Long, isMute: Boolean = true): MilkySetGroupWholeMuteApi =
             create(MilkySetGroupWholeMuteParam(groupId, isMute))
     }

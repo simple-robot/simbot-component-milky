@@ -44,7 +44,7 @@ public class MilkyUploadGroupFileParam(
     @SerialName("parent_folder_id")
     public val parentFolderId: String = "/",
     /**
-     * 文件 URI，支持 file://、http(s)://、base64:// 三种格式
+     * 文件 URI，支持 `file://`、`http(s)://`、`base64://` 三种格式
      */
     @SerialName("file_uri")
     public val fileUri: String,

@@ -26,7 +26,9 @@ package love.forte.simbot.milky.api.group
 import love.forte.simbot.milky.api.MilkyApi
 import love.forte.simbot.milky.api.UnitResultMilkyApi
 import love.forte.simbot.milky.model.api.group.MilkySetGroupMemberMuteParam
+import kotlin.jvm.JvmOverloads
 import kotlin.jvm.JvmStatic
+import kotlin.time.Duration
 
 /**
  * [set_group_member_mute 设置群成员禁言](https://milky.ntqqrev.org/api/group#set_group_member_mute)
@@ -63,7 +65,19 @@ public class MilkySetGroupMemberMuteApi private constructor(
          * @param duration 禁言持续时间（秒），设为 0 为取消禁言
          */
         @JvmStatic
+        @JvmOverloads
         public fun create(groupId: Long, userId: Long, duration: Int = 0): MilkySetGroupMemberMuteApi =
             create(MilkySetGroupMemberMuteParam(groupId, userId, duration))
     }
 }
+
+/**
+ * 使用 API 入参字段构建 [MilkySetGroupMemberMuteApi]。
+ * @param groupId 群号
+ * @param userId 被设置的 QQ 号
+ * @param duration 禁言持续时间（秒），设为 0 为取消禁言
+ */
+public fun MilkySetGroupMemberMuteApi.Companion.create(
+    groupId: Long, userId: Long, duration: Duration
+): MilkySetGroupMemberMuteApi =
+    MilkySetGroupMemberMuteApi.create(groupId, userId, duration.inWholeSeconds.toInt())

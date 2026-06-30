@@ -29,6 +29,7 @@ import love.forte.simbot.milky.api.SerializationBasedTypedMilkyApi
 import love.forte.simbot.milky.model.api.MilkyApiResult
 import love.forte.simbot.milky.model.api.friend.MilkyGetFriendRequestsParam
 import love.forte.simbot.milky.model.api.friend.MilkyGetFriendRequestsResponse
+import kotlin.jvm.JvmOverloads
 import kotlin.jvm.JvmStatic
 
 /**
@@ -74,6 +75,7 @@ public class MilkyGetFriendRequestsApi private constructor(
          * @param isFiltered true 表示只获取被过滤的通知，false 表示只获取未被过滤的通知
          */
         @JvmStatic
+        @JvmOverloads
         public fun create(limit: Int = 20, isFiltered: Boolean = false): MilkyGetFriendRequestsApi =
             create(MilkyGetFriendRequestsParam(limit, isFiltered))
     }

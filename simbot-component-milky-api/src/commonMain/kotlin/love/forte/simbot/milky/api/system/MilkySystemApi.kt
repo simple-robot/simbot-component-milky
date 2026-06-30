@@ -23,11 +23,11 @@
 
 package love.forte.simbot.milky.api.system
 
+import love.forte.simbot.milky.api.MilkyApi
+
 /**
  * [Milky 系统 API](https://milky.ntqqrev.org/api/system)
  *
  * @author Forte Scarlet
  */
-public interface MilkySystemApi {
-    // TODO
-}
+public interface MilkySystemApi : MilkyApi

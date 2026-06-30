@@ -26,6 +26,7 @@ package love.forte.simbot.milky.api.group
 import love.forte.simbot.milky.api.MilkyApi
 import love.forte.simbot.milky.api.UnitResultMilkyApi
 import love.forte.simbot.milky.model.api.group.MilkySetGroupMemberAdminParam
+import kotlin.jvm.JvmOverloads
 import kotlin.jvm.JvmStatic
 
 /**
@@ -63,6 +64,7 @@ public class MilkySetGroupMemberAdminApi private constructor(
          * @param isSet 是否设置为管理员，false 表示取消管理员
          */
         @JvmStatic
+        @JvmOverloads
         public fun create(groupId: Long, userId: Long, isSet: Boolean = true): MilkySetGroupMemberAdminApi =
             create(MilkySetGroupMemberAdminParam(groupId, userId, isSet))
     }

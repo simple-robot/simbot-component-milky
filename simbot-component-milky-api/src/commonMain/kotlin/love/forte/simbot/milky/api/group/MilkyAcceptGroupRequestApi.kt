@@ -27,6 +27,7 @@ import love.forte.simbot.milky.api.MilkyApi
 import love.forte.simbot.milky.api.UnitResultMilkyApi
 import love.forte.simbot.milky.model.api.group.MilkyAcceptGroupRequestParam
 import love.forte.simbot.milky.model.api.group.MilkyGroupRequestNotificationType
+import kotlin.jvm.JvmOverloads
 import kotlin.jvm.JvmStatic
 
 /**
@@ -65,6 +66,7 @@ public class MilkyAcceptGroupRequestApi private constructor(
          * @param isFiltered 是否是被过滤的请求
          */
         @JvmStatic
+        @JvmOverloads
         public fun create(
             notificationSeq: Long,
             notificationType: MilkyGroupRequestNotificationType,

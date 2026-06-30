@@ -74,5 +74,19 @@ public class MilkyRejectGroupRequestApi private constructor(
             reason: String? = null
         ): MilkyRejectGroupRequestApi =
             create(MilkyRejectGroupRequestParam(notificationSeq, notificationType, groupId, isFiltered, reason))
+
+        /**
+         * 使用 API 入参字段构建 [MilkyRejectGroupRequestApi]。
+         * @param notificationSeq 请求对应的通知序列号
+         * @param notificationType 请求对应的通知类型
+         * @param groupId 请求所在的群号
+         */
+        @JvmStatic
+        public fun create(
+            notificationSeq: Long,
+            notificationType: MilkyGroupRequestNotificationType,
+            groupId: Long,
+        ): MilkyRejectGroupRequestApi =
+            create(MilkyRejectGroupRequestParam(notificationSeq, notificationType, groupId))
     }
 }

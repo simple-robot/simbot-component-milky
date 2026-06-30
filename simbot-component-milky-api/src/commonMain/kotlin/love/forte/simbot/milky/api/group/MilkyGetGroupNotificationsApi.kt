@@ -61,6 +61,8 @@ public class MilkyGetGroupNotificationsApi private constructor(
         public const val API_NAME: String = "get_group_notifications"
         private val RESULT_DESERIALIZER = MilkyApiResult.serializer(MilkyGetGroupNotificationsResponse.serializer())
 
+        private val EMPTY_INSTANCE = MilkyGetGroupNotificationsApi(MilkyGetGroupNotificationsParam())
+
         /**
          * 使用 [MilkyGetGroupNotificationsParam] 构建 [MilkyGetGroupNotificationsApi]。
          */
@@ -81,5 +83,11 @@ public class MilkyGetGroupNotificationsApi private constructor(
             limit: Int = 20
         ): MilkyGetGroupNotificationsApi =
             create(MilkyGetGroupNotificationsParam(startNotificationSeq, isFiltered, limit))
+
+        /**
+         * 使用 API 入参字段构建 [MilkyGetGroupNotificationsApi]。
+         */
+        @JvmStatic
+        public fun create(): MilkyGetGroupNotificationsApi = EMPTY_INSTANCE
     }
 }

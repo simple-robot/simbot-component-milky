@@ -68,5 +68,13 @@ public class MilkyRejectFriendRequestApi private constructor(
             isFiltered: Boolean = false,
             reason: String? = null
         ): MilkyRejectFriendRequestApi = create(MilkyRejectFriendRequestParam(initiatorUid, isFiltered, reason))
+
+        /**
+         * 使用 API 入参字段构建 [MilkyRejectFriendRequestApi]。
+         * @param initiatorUid 请求发起者 UID
+         */
+        @JvmStatic
+        public fun create(initiatorUid: String): MilkyRejectFriendRequestApi =
+            create(MilkyRejectFriendRequestParam(initiatorUid))
     }
 }

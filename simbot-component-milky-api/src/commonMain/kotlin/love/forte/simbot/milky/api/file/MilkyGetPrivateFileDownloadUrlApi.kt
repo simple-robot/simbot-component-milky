@@ -38,8 +38,7 @@ import kotlin.jvm.JvmStatic
  */
 public class MilkyGetPrivateFileDownloadUrlApi private constructor(
     private val param: MilkyGetPrivateFileDownloadUrlParam
-) :
-    SerializationBasedTypedMilkyApi<MilkyGetPrivateFileDownloadUrlResponse>(),
+) : SerializationBasedTypedMilkyApi<MilkyGetPrivateFileDownloadUrlResponse>(),
     MilkyFileApi {
     override val apiName: String
         get() = API_NAME

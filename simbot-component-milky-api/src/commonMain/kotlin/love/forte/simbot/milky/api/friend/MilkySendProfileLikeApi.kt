@@ -26,6 +26,7 @@ package love.forte.simbot.milky.api.friend
 import love.forte.simbot.milky.api.MilkyApi
 import love.forte.simbot.milky.api.UnitResultMilkyApi
 import love.forte.simbot.milky.model.api.friend.MilkySendProfileLikeParam
+import kotlin.jvm.JvmOverloads
 import kotlin.jvm.JvmStatic
 
 /**
@@ -61,6 +62,7 @@ public class MilkySendProfileLikeApi private constructor(
          * @param count 点赞数量
          */
         @JvmStatic
+        @JvmOverloads
         public fun create(userId: Long, count: Int = 1): MilkySendProfileLikeApi =
             create(MilkySendProfileLikeParam(userId, count))
     }

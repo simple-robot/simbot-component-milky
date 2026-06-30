@@ -27,6 +27,7 @@ import love.forte.simbot.milky.api.MilkyApi
 import love.forte.simbot.milky.api.UnitResultMilkyApi
 import love.forte.simbot.milky.model.api.message.MilkyMessageScene
 import love.forte.simbot.milky.model.api.system.MilkySetPeerPinParam
+import kotlin.jvm.JvmOverloads
 import kotlin.jvm.JvmStatic
 
 /**
@@ -63,6 +64,7 @@ public class MilkySetPeerPinApi private constructor(
          * @param isPinned 是否置顶，false 表示取消置顶
          */
         @JvmStatic
+        @JvmOverloads
         public fun create(messageScene: MilkyMessageScene, peerId: Long, isPinned: Boolean = true): MilkySetPeerPinApi =
             create(MilkySetPeerPinParam(messageScene, peerId, isPinned))
     }

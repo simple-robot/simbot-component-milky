@@ -26,6 +26,7 @@ package love.forte.simbot.milky.api.group
 import love.forte.simbot.milky.api.MilkyApi
 import love.forte.simbot.milky.api.UnitResultMilkyApi
 import love.forte.simbot.milky.model.api.group.MilkyKickGroupMemberParam
+import kotlin.jvm.JvmOverloads
 import kotlin.jvm.JvmStatic
 
 /**
@@ -62,6 +63,7 @@ public class MilkyKickGroupMemberApi private constructor(
          * @param rejectAddRequest 是否拒绝加群申请，false 表示不拒绝
          */
         @JvmStatic
+        @JvmOverloads
         public fun create(groupId: Long, userId: Long, rejectAddRequest: Boolean = false): MilkyKickGroupMemberApi =
             create(MilkyKickGroupMemberParam(groupId, userId, rejectAddRequest))
     }

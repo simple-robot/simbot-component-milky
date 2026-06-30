@@ -26,6 +26,7 @@ package love.forte.simbot.milky.api.friend
 import love.forte.simbot.milky.api.MilkyApi
 import love.forte.simbot.milky.api.UnitResultMilkyApi
 import love.forte.simbot.milky.model.api.friend.MilkySendFriendNudgeParam
+import kotlin.jvm.JvmOverloads
 import kotlin.jvm.JvmStatic
 
 /**
@@ -61,6 +62,7 @@ public class MilkySendFriendNudgeApi private constructor(
          * @param isSelf 是否戳自己
          */
         @JvmStatic
+        @JvmOverloads
         public fun create(userId: Long, isSelf: Boolean = false): MilkySendFriendNudgeApi =
             create(MilkySendFriendNudgeParam(userId, isSelf))
     }

@@ -38,8 +38,7 @@ import kotlin.jvm.JvmStatic
  */
 public class MilkyUploadGroupFileApi private constructor(
     private val param: MilkyUploadGroupFileParam
-) :
-    SerializationBasedTypedMilkyApi<MilkyUploadGroupFileResponse>(),
+) : SerializationBasedTypedMilkyApi<MilkyUploadGroupFileResponse>(),
     MilkyFileApi {
     override val apiName: String
         get() = API_NAME
@@ -71,7 +70,7 @@ public class MilkyUploadGroupFileApi private constructor(
          * 使用 API 入参字段构建 [MilkyUploadGroupFileApi]。
          * @param groupId 群号
          * @param parentFolderId 目标文件夹 ID
-         * @param fileUri 文件 URI，支持 file://、http(s)://、base64:// 三种格式
+         * @param fileUri 文件 URI，支持 `file://`、`http(s)://`、`base64://` 三种格式
          * @param fileName 文件名称
          */
         @JvmStatic

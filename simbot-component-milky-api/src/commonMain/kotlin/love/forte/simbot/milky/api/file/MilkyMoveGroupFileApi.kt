@@ -66,8 +66,17 @@ public class MilkyMoveGroupFileApi private constructor(
         public fun create(
             groupId: Long,
             fileId: String,
-            parentFolderId: String = "/",
-            targetFolderId: String = "/"
+            parentFolderId: String,
+            targetFolderId: String
         ): MilkyMoveGroupFileApi = create(MilkyMoveGroupFileParam(groupId, fileId, parentFolderId, targetFolderId))
+
+        /**
+         * 使用 API 入参字段构建 [MilkyMoveGroupFileApi]。
+         * @param groupId 群号
+         * @param fileId 文件 ID
+         */
+        @JvmStatic
+        public fun create(groupId: Long, fileId: String): MilkyMoveGroupFileApi =
+            create(MilkyMoveGroupFileParam(groupId, fileId))
     }
 }

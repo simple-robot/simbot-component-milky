@@ -21,13 +21,10 @@
  *
  */
 
-package love.forte.simbot.milky.api.message
+package love.forte.simbot.milky.api
 
-import love.forte.simbot.milky.api.MilkyApi
 
-/**
- * [Milky 消息 API](https://milky.ntqqrev.org/api/message)
- *
- * @author Forte Scarlet
- */
-public interface MilkyMessageApi : MilkyApi
+@Retention(AnnotationRetention.SOURCE)
+internal annotation class MilkyApiFactoryFun
+
+// TODO ?

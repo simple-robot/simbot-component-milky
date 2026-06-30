@@ -23,11 +23,11 @@
 
 package love.forte.simbot.milky.api.group
 
+import love.forte.simbot.milky.api.MilkyApi
+
 /**
  * [Milky 群聊 API](https://milky.ntqqrev.org/api/group)
  *
  * @author Forte Scarlet
  */
-public interface MilkyGroupApi {
-    // TODO
-}
+public interface MilkyGroupApi : MilkyApi
