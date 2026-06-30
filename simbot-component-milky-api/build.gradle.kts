@@ -30,10 +30,7 @@ description = "API abstractions and client contracts for simbot-component-milky.
 kotlin {
     compilerOptions {
         freeCompilerArgs.add("-Xcollection-literals")
-        optIn.addAll(
-            "love.forte.simbot.milky.api.InternalMilkyApiSerializerJson",
-            "love.forte.simbot.milky.model.api.MilkyApiModelConstructor"
-        )
+        optIn.add("love.forte.simbot.milky.api.InternalMilkyApiSerializerJson")
     }
 
     sourceSets {

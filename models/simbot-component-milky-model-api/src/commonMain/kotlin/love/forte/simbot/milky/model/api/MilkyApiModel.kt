@@ -27,6 +27,7 @@ package love.forte.simbot.milky.model.api
  * Milky API 相关内容的数据模型类型（例如请求体参数、响应体参数）的基础类型接口。
  * @author Forte Scarlet
  */
-public interface MilkyApiModel {
-    // TODO
-}
+public interface MilkyApiModel
+
+public interface MilkyApiParamModel : MilkyApiModel
+public interface MilkyApiResponseModel : MilkyApiModel

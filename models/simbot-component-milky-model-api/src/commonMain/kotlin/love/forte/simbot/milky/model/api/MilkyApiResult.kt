@@ -1,6 +1,7 @@
 package love.forte.simbot.milky.model.api
 
 import kotlinx.serialization.Serializable
+import love.forte.simbot.milky.model.api.MilkyApiResult.Companion.SUCCESS_RETCODE
 
 /**
  * Milky API 的统一返回结构体。
@@ -116,5 +117,19 @@ public class MilkyApiResult<out T : Any> private constructor(
 
     override fun toString(): String {
         return "MilkyApiResult(data=$data, status='$status', retcode=$retcode, message=$message)"
+    }
+}
+
+/**
+ * 校验 [MilkyApiResult] 的状态码是否为成功。如果
+ * [retcode] 不为 [MilkyApiResult.SUCCESS_RETCODE]，则抛出 [MilkyApiResultFailedStatusException]。
+ */
+public fun MilkyApiResult<*>.validate() {
+    if (retcode != SUCCESS_RETCODE) {
+        throw MilkyApiResultFailedStatusException(
+            status = status,
+            retcode = retcode,
+            resultMessage = message
+        )
     }
 }

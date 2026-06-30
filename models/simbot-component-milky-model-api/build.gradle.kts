@@ -30,6 +30,7 @@ description = "Shared model definitions for simbot-component-milky."
 kotlin {
     compilerOptions {
         freeCompilerArgs.add("-Xconsistent-data-class-copy-visibility")
+        optIn.add("love.forte.simbot.milky.model.api.MilkyApiModelConstructor")
     }
 
     sourceSets {
@@ -37,7 +38,10 @@ kotlin {
             api(project(":models:simbot-component-milky-model-common"))
             api(project(":models:simbot-component-milky-model-entity"))
             api(libs.kotlinx.serialization.core)
-            api(libs.kotlinx.serialization.json)
+        }
+
+        commonTest.dependencies {
+            implementation(libs.kotlinx.serialization.json)
         }
     }
 }

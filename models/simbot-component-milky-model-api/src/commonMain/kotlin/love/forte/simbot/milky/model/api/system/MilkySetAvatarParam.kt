@@ -24,7 +24,7 @@
 package love.forte.simbot.milky.model.api.system
 
 import kotlinx.serialization.Serializable
-import love.forte.simbot.milky.model.api.MilkyApiModelConstructor
+import love.forte.simbot.milky.model.api.MilkyApiParamModel
 
 /**
  * [set_avatar 设置 QQ 账号头像](https://milky.ntqqrev.org/api/system#set_avatar)
@@ -32,10 +32,13 @@ import love.forte.simbot.milky.model.api.MilkyApiModelConstructor
  * @author Forte Scarlet
  */
 @Serializable
-public data class MilkySetAvatarParam
-@MilkyApiModelConstructor constructor(
+public class MilkySetAvatarParam(
     /**
      * 头像文件 URI，支持 `file://` `http(s)://` `base64://` 三种格式。
      */
-    val uri: String
-)
+    public val uri: String
+) : MilkyApiParamModel {
+    override fun toString(): String {
+        return "MilkySetAvatarParam(uri='$uri')"
+    }
+}

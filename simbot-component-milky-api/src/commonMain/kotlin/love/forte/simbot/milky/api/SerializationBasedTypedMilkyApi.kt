@@ -40,8 +40,8 @@ public abstract class SerializationBasedTypedMilkyApi<R : Any> : TypedMilkyApi<R
         return MilkyApi.defaultJson.decodeFromString(resultSerializer, resultJson)
     }
 
-    override fun decodeResultContent(resultContentJson: String): R {
-        return MilkyApi.defaultJson.decodeFromString(contentSerializer, resultContentJson)
+    override fun decodeResultContent(resultDataJson: String): R {
+        return MilkyApi.defaultJson.decodeFromString(contentSerializer, resultDataJson)
     }
 }
 

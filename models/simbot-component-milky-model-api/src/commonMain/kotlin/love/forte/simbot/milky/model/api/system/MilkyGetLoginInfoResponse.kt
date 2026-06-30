@@ -24,8 +24,8 @@
 package love.forte.simbot.milky.model.api.system
 
 import kotlinx.serialization.Serializable
-import love.forte.simbot.milky.model.api.MilkyApiModel
 import love.forte.simbot.milky.model.api.MilkyApiModelConstructor
+import love.forte.simbot.milky.model.api.MilkyApiResponseModel
 
 /**
  * [get_login_info 获取登录信息](https://milky.ntqqrev.org/api/system#get_login_info)
@@ -35,7 +35,7 @@ import love.forte.simbot.milky.model.api.MilkyApiModelConstructor
  */
 @Serializable
 public data class MilkyGetLoginInfoResponse
-@MilkyApiModelConstructor internal constructor(
+@MilkyApiModelConstructor private constructor(
     /**
      * 登录 QQ 号
      */
@@ -44,4 +44,4 @@ public data class MilkyGetLoginInfoResponse
      * 登录 QQ 昵称
      */
     val nickname: String,
-) : MilkyApiModel
+) : MilkyApiResponseModel

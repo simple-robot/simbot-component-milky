@@ -20,26 +20,13 @@ public class MilkyApiResultFailedStatusException : RuntimeException {
      */
     public val resultMessage: String?
 
-    public constructor(status: String, retcode: Int, resultMessage: String?, cause: Throwable?) : super(cause) {
+    public constructor(status: String, retcode: Int, resultMessage: String?) : super("$status $retcode: $resultMessage") {
         this.status = status
         this.retcode = retcode
         this.resultMessage = resultMessage
-
     }
 
     public constructor(status: String, retcode: Int, resultMessage: String?, message: String?) : super(message) {
-        this.status = status
-        this.retcode = retcode
-        this.resultMessage = resultMessage
-    }
-
-    public constructor(
-        status: String,
-        retcode: Int,
-        resultMessage: String?,
-        message: String?,
-        cause: Throwable?
-    ) : super(message, cause) {
         this.status = status
         this.retcode = retcode
         this.resultMessage = resultMessage

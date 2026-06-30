@@ -37,6 +37,8 @@ public interface TypedMilkyApi<R : Any> : MilkyApi {
     /**
      * 将返回值的 JSON 解析为目标的预期类型 [MilkyApiResult]。
      *
+     * 注意：这里**只是**进行反序列化行为，不包括对 [MilkyApiResult.retcode] 进行校验之类的能力。
+     *
      * @see MilkyApiResult
      * @param resultJson 返回值的 JSON 字符串。
      */
@@ -45,9 +47,11 @@ public interface TypedMilkyApi<R : Any> : MilkyApi {
     /**
      * 将返回值内的 `data` 数据的 JSON 解析为目标的预期类型 [R]。
      *
+     * 注意：这里是**直接**解析 data 内的数据结构体，因此不包括对 [MilkyApiResult.retcode] 进行校验之类的能力。
+     *
      * @see MilkyApiResult.data
-     * @param resultContentJson 返回值内的 `data` 数据的 JSON 字符串。
+     * @param resultDataJson 返回值内的 `data` 数据的 JSON 字符串。
      */
-    public fun decodeResultContent(resultContentJson: String): R
+    public fun decodeResultContent(resultDataJson: String): R
 
 }
