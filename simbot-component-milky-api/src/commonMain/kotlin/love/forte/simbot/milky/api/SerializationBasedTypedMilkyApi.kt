@@ -21,13 +21,25 @@
  *
  */
 
-package love.forte.simbot.milky.model.api.message
+package love.forte.simbot.milky.api
+
+import kotlinx.serialization.KSerializer
+import love.forte.simbot.milky.model.api.MilkyApiResult
 
 /**
- * [Milky 消息 API](https://milky.ntqqrev.org/api/message)
  *
  * @author Forte Scarlet
  */
-public interface MilkyMessageModel {
-    // TODO
+public abstract class SerializationBasedTypedMilkyApi<R : Any> : TypedMilkyApi<R> {
+    protected abstract val contentSerializer: KSerializer<R>
+    protected abstract val resultSerializer: KSerializer<MilkyApiResult<R>>
+
+
+    override fun decodeResult(resultJson: String): MilkyApiResult<R> {
+        return MilkyApi.defaultJson.decodeFromString(resultSerializer, resultJson)
+    }
+
+    override fun decodeResultContent(resultContentJson: String): R {
+        return MilkyApi.defaultJson.decodeFromString(contentSerializer, resultContentJson)
+    }
 }

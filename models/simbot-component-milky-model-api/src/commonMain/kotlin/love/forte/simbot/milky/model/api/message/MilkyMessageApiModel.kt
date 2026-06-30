@@ -21,13 +21,13 @@
  *
  */
 
-package love.forte.simbot.milky.model.api.friend
+package love.forte.simbot.milky.model.api.message
 
 /**
- * [Milky 好友 API](https://milky.ntqqrev.org/api/friend)
+ * [Milky 消息 API](https://milky.ntqqrev.org/api/message)
  *
  * @author Forte Scarlet
  */
-public interface MilkyFriendModel {
+public interface MilkyMessageApiModel {
     // TODO
 }

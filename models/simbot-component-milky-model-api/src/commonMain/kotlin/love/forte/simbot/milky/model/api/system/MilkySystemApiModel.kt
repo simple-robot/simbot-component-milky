@@ -21,13 +21,13 @@
  *
  */
 
-package love.forte.simbot.milky.model.api.group
+package love.forte.simbot.milky.model.api.system
 
 /**
- * [Milky 群聊 API](https://milky.ntqqrev.org/api/group)
+ * [Milky 系统 API](https://milky.ntqqrev.org/api/system)
  *
  * @author Forte Scarlet
  */
-public interface MilkyGroupModel {
+public interface MilkySystemApiModel {
     // TODO
 }

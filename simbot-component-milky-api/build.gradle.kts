@@ -28,6 +28,11 @@ plugins {
 description = "API abstractions and client contracts for simbot-component-milky."
 
 kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xcollection-literals")
+        optIn.add("love.forte.simbot.milky.api.InternalMilkyApiSerializerJson")
+    }
+
     sourceSets {
         commonMain.dependencies {
             api(project(":models:simbot-component-milky-model-api"))

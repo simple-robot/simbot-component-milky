@@ -118,38 +118,23 @@ public interface MilkyApi {
      * 请求方式。Milky 的主要请求方式均为 [HttpMethod.Post]。因此默认值为 [HttpMethod.Post]。
      */
     public val method: HttpMethod
+        get() = HttpMethod.Post
 
     /**
      * 请求目标的相对路径段。
      *
      * 路径中的每一段都应当已经完成 URL path encode。
      *
-     * ## 相对性
+     * ## API 目标资源定义
      *
      * Milky 的请求路径通常为 `/api/:api`，例如 `/api/send_private_message`，
      * 其可视为：
      * 1. 一个绝对资源路径 `/api/send_private_message`。
      * 2. 一个在根路径 `/` 中的相对资源 `api/send_private_message`。
      *
-     * [pathSegments] 以第二种视角定义资源路径，即用于表示请求路径的 **相对资源路径** 的每一段的集合，而不要求它的“绝对”。
-     * 例如 `api/send_private_message`，对应的 [pathSegments] 为：`["api", "send_private_message"]`。
-     *
-     * 简单通俗地来说，它应当表示了一个开头和结尾都*不包含* `/` **相对资源路径** ，符合 RFC 3986 对相对资源路径的定义。
-     * 在请求时，假设原本的基 URL 和最终 URL 的对应关系：
-     *
-     * | 基 URL | 最终 URL |
-     * | :--- | :--- |
-     * | `https://example.com/` | `https://example.com/api/send_private_message` |
-     * | `https://example.com` | `https://example.com/api/send_private_message` |
-     * | `https://example.com/milky/api` | `https://example.com/milky/api/send_private_message` |
-     * | `https://example.com/milky/api/` | `https://example.com/milky/api/api/send_private_message` |
-     *
-     * 对于 Java，其 URI/URL 符合 RFC 3986 规范与算法，因此正常使用相对路径的格式 `api/send_private_message` 即可。
-     * 对于 Ktor 中的 Url，通过 [URLBuilder.takeFrom] 来处理路径规则。
-     *
-     * @sample love.forte.simbot.milky.api.MilkyApiTests.testPathSegmentsBuild
+     * 而在 [MilkyApi] 中，我们只通过 [apiName] 定义其中的 `:api` 部分，而前缀路径等内容作为 base url 的一部分。
      */
-    public val pathSegments: List<String>
+    public val apiName: String
 
     /**
      * 获取请求体内容。返回值为 JSON 字符串。

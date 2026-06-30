@@ -21,13 +21,27 @@
  *
  */
 
-package love.forte.simbot.milky.model.api.file
+package love.forte.simbot.milky.model.api.system
+
+import kotlinx.serialization.Serializable
+import love.forte.simbot.milky.model.api.MilkyApiModel
+import love.forte.simbot.milky.model.api.MilkyApiModelConstructor
 
 /**
- * [Milky 文件 API](https://milky.ntqqrev.org/api/file) 的相关模型
+ * [get_login_info 获取登录信息](https://milky.ntqqrev.org/api/system#get_login_info)
+ * API 的响应体结构模型（输出参数）。
  *
  * @author Forte Scarlet
  */
-public interface MilkyFileModel {
-    // TODO
-}
+@Serializable
+public data class MilkyGetLoginInfoResponse
+@MilkyApiModelConstructor constructor(
+    /**
+     * 登录 QQ 号
+     */
+    val uin: Long,
+    /**
+     * 登录 QQ 昵称
+     */
+    val nickname: String,
+) : MilkyApiModel
