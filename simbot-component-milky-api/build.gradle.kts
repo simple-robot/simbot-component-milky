@@ -23,6 +23,7 @@
 
 plugins {
     id("milky.module-conventions")
+    id("milky.suspend-transform")
 }
 
 description = "API abstractions and client contracts for simbot-component-milky."
@@ -40,6 +41,7 @@ kotlin {
             // api(project(":models:simbot-component-milky-model-event"))
             // api(libs.simbot.api)
             api(libs.simbot.common.annotations)
+            api(libs.simbot.common.suspend.runner)
             //api(libs.simbot.common.time)
             // TODO 这个还得完善
             // api(libs.simbot.common.apidefinition)
@@ -53,6 +55,10 @@ kotlin {
         commonTest.dependencies {
             implementation(libs.kotlinx.coroutines.test)
             implementation(libs.ktor.client.mock)
+        }
+
+        jvmMain.dependencies {
+            compileOnly(libs.kotlinx.coroutines.reactive)
         }
 
         jsMain.dependencies {

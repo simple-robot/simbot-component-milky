@@ -55,6 +55,8 @@ import kotlin.jvm.JvmName
  * @param accessToken Milky 协议端配置的访问令牌。如果不为 `null`，会作为 `Bearer` token 写入 `Authorization` 请求头。
  * @param validateStatus 是否校验 HTTP Status。
  *
+ * @throws kotlinx.serialization.SerializationException 对出/入参进行序列化时可能出现的错误。
+ * 可能源自 execute 内，也可能源自 [MilkyApi.bodyContent]。
  * @throws MilkyApiExecutionException 如果 [validateStatus] 为 `true` 且 HTTP Status 不在 `200..<300`。
  *
  * @see MilkyApi
@@ -83,6 +85,8 @@ public suspend fun HttpClient.executeApi(
  * @param accessToken Milky 协议端配置的访问令牌。如果不为 `null`，会作为 `Bearer` token 写入 `Authorization` 请求头。
  * @param validateStatus 是否校验 HTTP Status。
  *
+ * @throws kotlinx.serialization.SerializationException 对出/入参进行序列化时可能出现的错误。
+ * 可能源自 execute 内，也可能源自 [MilkyApi.bodyContent]。
  * @throws MilkyApiExecutionException 如果 [validateStatus] 为 `true` 且 HTTP Status 不在 `200..<300`。
  *
  * @see MilkyApi
@@ -113,6 +117,8 @@ public suspend fun HttpClient.executeApi(
  *
  * @return 响应体文本。
  *
+ * @throws kotlinx.serialization.SerializationException 对出/入参进行序列化时可能出现的错误。
+ * 可能源自 execute 内，也可能源自 [MilkyApi.bodyContent]。
  * @throws MilkyApiExecutionException 如果 HTTP Status 不在 `200..<300`。
  *
  * @see executeApi
@@ -139,6 +145,8 @@ public suspend fun HttpClient.executeApiText(
  *
  * @return 响应体文本。
  *
+ * @throws kotlinx.serialization.SerializationException 对出/入参进行序列化时可能出现的错误。
+ * 可能源自 execute 内，也可能源自 [MilkyApi.bodyContent]。
  * @throws MilkyApiExecutionException 如果 HTTP Status 不在 `200..<300`。
  *
  * @see executeApi
@@ -166,6 +174,8 @@ public suspend fun HttpClient.executeApiText(
  *
  * @return 解析后的 Milky API 统一返回结构。
  *
+ * @throws kotlinx.serialization.SerializationException 对出/入参进行序列化时可能出现的错误。
+ * 可能源自 execute 内，也可能源自 [MilkyApi.bodyContent]。
  * @throws MilkyApiExecutionException 如果 HTTP Status 不在 `200..<300`。
  * @throws MilkyApiResultFailedStatusException 如果 [validateResult] 为 `true` 且 [MilkyApiResult.retcode] 不为
  * [MilkyApiResult.SUCCESS_RETCODE]。
@@ -202,6 +212,8 @@ public suspend fun <R : Any> HttpClient.executeApiResult(
  *
  * @return 解析后的 Milky API 统一返回结构。
  *
+ * @throws kotlinx.serialization.SerializationException 对出/入参进行序列化时可能出现的错误。
+ * 可能源自 execute 内，也可能源自 [MilkyApi.bodyContent]。
  * @throws MilkyApiExecutionException 如果 HTTP Status 不在 `200..<300`。
  * @throws MilkyApiResultFailedStatusException 如果 [validateResult] 为 `true` 且 [MilkyApiResult.retcode] 不为
  * [MilkyApiResult.SUCCESS_RETCODE]。
@@ -236,6 +248,8 @@ public suspend fun <R : Any> HttpClient.executeApiResult(
  *
  * @return Milky API 成功响应中的 `data` 内容。
  *
+ * @throws kotlinx.serialization.SerializationException 对出/入参进行序列化时可能出现的错误。
+ * 可能源自 execute 内，也可能源自 [MilkyApi.bodyContent]。
  * @throws MilkyApiExecutionException 如果 HTTP Status 不在 `200..<300`。
  * @throws MilkyApiResultFailedStatusException 如果 [MilkyApiResult.retcode] 不为 [MilkyApiResult.SUCCESS_RETCODE]。
  *
@@ -264,6 +278,8 @@ public suspend fun <R : Any> HttpClient.executeApiContent(
  *
  * @return Milky API 成功响应中的 `data` 内容。
  *
+ * @throws kotlinx.serialization.SerializationException 对出/入参进行序列化时可能出现的错误。
+ * 可能源自 execute 内，也可能源自 [MilkyApi.bodyContent]。
  * @throws MilkyApiExecutionException 如果 HTTP Status 不在 `200..<300`。
  * @throws MilkyApiResultFailedStatusException 如果 [MilkyApiResult.retcode] 不为 [MilkyApiResult.SUCCESS_RETCODE]。
  *

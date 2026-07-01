@@ -27,9 +27,12 @@ simbot-common-apidefinition = { module = "love.forte.simbot.common:simbot-common
 simbot-common-core = { module = "love.forte.simbot.common:simbot-common-core", version.ref = "simbot" }
 simbot-common-collection = { module = "love.forte.simbot.common:simbot-common-collection", version.ref = "simbot" }
 simbot-common-suspend-runner = { module = "love.forte.simbot.common:simbot-common-suspend-runner", version.ref = "simbot" }
+simbot-gradle = { group = "love.forte.simbot.gradle", name = "simbot-gradle-suspendtransforms", version.ref = "simbot" }
 
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-reactive = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-reactive", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-reactor = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-reactor", version.ref = "kotlinx-coroutines" }
 
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
@@ -63,3 +66,4 @@ suspend-transform-gradle = { module = "love.forte.plugin.suspend-transform:suspe
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 vanniktech-maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish-plugin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+suspendtransform = { id = "love.forte.plugin.suspend-transform", version.ref = "kstcp" }

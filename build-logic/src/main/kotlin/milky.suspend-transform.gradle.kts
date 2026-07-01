@@ -1,10 +1,12 @@
+import love.forte.simbot.gradle.suspendtransforms.addSimbotJvmTransforms
+
 /*
  *     Copyright (c) 2026. ForteScarlet.
  *
- *     Project    https://github.com/simple-robot/simbot-component-milky
+ *     Project    https://github.com/simple-robot/simpler-robot
  *     Email      ForteScarlet@163.com
  *
- *     This file is part of simbot-component-milky.
+ *     This file is part of the Simple Robot Library (Alias: simple-robot, simbot, etc.).
  *
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU Lesser General Public License as published by
@@ -16,22 +18,18 @@
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     Lesser GNU General Public License for more details.
  *
- *     You should have received a copy of the Lesser General Public License
+ *     You should have received a copy of the Lesser GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 
 plugins {
-    `kotlin-dsl`
+    id("love.forte.plugin.suspend-transform")
 }
 
-val kotlinVersion: String = libs.versions.kotlin.get()
+suspendTransformPlugin {
+    includeRuntime = false
+    includeAnnotation = false
 
-dependencies {
-    implementation(kotlin("gradle-plugin", kotlinVersion))
-    implementation(kotlin("serialization", kotlinVersion))
-    implementation(libs.dokka.plugin)
-    implementation(libs.maven.publish)
-    implementation(libs.suspend.transform.gradle)
-    implementation(libs.simbot.gradle)
+    addSimbotJvmTransforms()
 }

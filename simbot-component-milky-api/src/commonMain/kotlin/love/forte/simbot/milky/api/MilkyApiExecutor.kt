@@ -26,6 +26,7 @@ package love.forte.simbot.milky.api
 import io.ktor.client.*
 import io.ktor.client.statement.*
 import love.forte.simbot.milky.model.api.MilkyApiResult
+import love.forte.simbot.suspendrunner.ST
 
 /**
  * 一个可以提供用于执行 [MilkyApi] 必要内容的执行器。
@@ -33,6 +34,7 @@ import love.forte.simbot.milky.model.api.MilkyApiResult
  *
  * @author Forte Scarlet
  */
+@ST
 public interface MilkyApiExecutor {
     /**
      * Milky API 执行器所需的执行属性。
