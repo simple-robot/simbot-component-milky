@@ -38,18 +38,15 @@ kotlin {
         commonMain.dependencies {
             api(project(":models:simbot-component-milky-model-api"))
             api(project(":models:simbot-component-milky-model-entity"))
-            // api(project(":models:simbot-component-milky-model-event"))
+            api(project(":models:simbot-component-milky-model-event"))
             // api(libs.simbot.api)
             api(libs.simbot.common.annotations)
             api(libs.simbot.common.suspend.runner)
-            //api(libs.simbot.common.time)
             // TODO 这个还得完善
             // api(libs.simbot.common.apidefinition)
             api(libs.kotlinx.coroutines.core)
             api(libs.kotlinx.serialization.json)
             api(libs.ktor.client.core)
-            // api(libs.ktor.client.contentNegotiation)
-            // api(libs.ktor.serialization.kotlinxJson)
         }
 
         commonTest.dependencies {

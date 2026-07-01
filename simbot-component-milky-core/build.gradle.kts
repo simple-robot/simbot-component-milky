@@ -23,6 +23,7 @@
 
 plugins {
     id("milky.module-conventions")
+    id("milky.suspend-transform")
 }
 
 description = "Core implementation of simbot-component-milky."
@@ -38,9 +39,7 @@ kotlin {
             api(libs.simbot.common.suspend.runner)
             api(libs.kotlinx.coroutines.core)
             api(libs.kotlinx.io.core)
-            api(libs.ktor.client.contentNegotiation)
             api(libs.ktor.client.ws)
-            api(libs.ktor.serialization.kotlinxJson)
         }
 
         commonTest.dependencies {
@@ -53,6 +52,10 @@ kotlin {
             implementation(libs.log4j.api)
             implementation(libs.log4j.core)
             implementation(libs.log4j.slf4j2)
+        }
+
+        jvmMain.dependencies {
+            compileOnly(libs.kotlinx.coroutines.reactive)
         }
 
         jsMain.dependencies {
