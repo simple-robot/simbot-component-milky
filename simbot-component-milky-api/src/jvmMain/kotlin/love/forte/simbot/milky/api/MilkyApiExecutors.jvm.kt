@@ -155,6 +155,11 @@ public fun HttpClient.executeApiAsync(
  * 使用 [HttpClient] 执行 [api] 并得到响应结果 [HttpResponse]。
  *
  * 此函数是 [executeApi] 的 JVM Reactive 桥接，返回 Reactive Streams [Publisher]。
+ *
+ * 如果要使用此函数，要求 classpath 中至少包含
+ * [kotlinx-coroutines-reactive](https://github.com/Kotlin/kotlinx.coroutines/tree/master/reactive/kotlinx-coroutines-reactive)，
+ * 因为其中会使用到它提供的辅助函数。
+ *
  * 可以在引入 [reactor-core](https://github.com/reactor/reactor-core) 后转为 `Mono`：
  *
  * ```kotlin
@@ -190,7 +195,12 @@ public fun HttpClient.executeApiReactive(
  * 使用 [HttpClient] 执行 [api] 并得到响应结果 [HttpResponse]。
  *
  * 此函数是 [executeApi] 的 JVM Reactive 桥接，返回 Reactive Streams [Publisher]。
- * 可参考同名 `String` 重载中转为 `Mono` 的示例。
+ *
+ * 如果要使用此函数，要求 classpath 中至少包含
+ * [kotlinx-coroutines-reactive](https://github.com/Kotlin/kotlinx.coroutines/tree/master/reactive/kotlinx-coroutines-reactive)，
+ * 因为其中会使用到它提供的辅助函数。
+ *
+ * 更多可参考 [executeApiReactive] 的文档说明。
  *
  * @param api 要被执行的 Milky API。
  * @param baseUrl API 的基础访问地址。注意包括访问端点前缀，例如 `http://localhost:8080/api`。
@@ -333,14 +343,12 @@ public fun HttpClient.executeApiTextAsync(
  *
  * 此函数会固定启用 HTTP Status 校验。
  * 此函数是 [executeApiText] 的 JVM Reactive 桥接，返回 Reactive Streams [Publisher]。
- * 可以在引入 [reactor-core](https://github.com/reactor/reactor-core) 后转为 `Mono`：
  *
- * ```kotlin
- * val mono = reactor.core.publisher.Mono.from(client.executeApiTextReactive(api, baseUrl))
- * ```
+ * 如果要使用此函数，要求 classpath 中至少包含
+ * [kotlinx-coroutines-reactive](https://github.com/Kotlin/kotlinx.coroutines/tree/master/reactive/kotlinx-coroutines-reactive)，
+ * 因为其中会使用到它提供的辅助函数。
  *
- * 如果需要与 Kotlin 协程的 Reactor API 互操作，可另行引入
- * [kotlinx-coroutines-reactor](https://github.com/Kotlin/kotlinx.coroutines/tree/master/reactive/kotlinx-coroutines-reactor)。
+ * 更多可参考 [executeApiReactive] 的文档说明。
  *
  * @param api 要被执行的 Milky API。
  * @param baseUrl API 的基础访问地址。注意包括访问端点前缀，例如 `http://localhost:8080/api`。
@@ -353,6 +361,7 @@ public fun HttpClient.executeApiTextAsync(
  * @throws MilkyApiExecutionException 如果 HTTP Status 不在 `200..<300`。
  *
  * @see executeApiText
+ * @see executeApiReactive
  */
 @OptIn(InternalSimbotAPI::class)
 @Api4J
@@ -369,7 +378,12 @@ public fun HttpClient.executeApiTextReactive(
  *
  * 此函数会固定启用 HTTP Status 校验。
  * 此函数是 [executeApiText] 的 JVM Reactive 桥接，返回 Reactive Streams [Publisher]。
- * 可参考同名 `String` 重载中转为 `Mono` 的示例。
+ *
+ * 如果要使用此函数，要求 classpath 中至少包含
+ * [kotlinx-coroutines-reactive](https://github.com/Kotlin/kotlinx.coroutines/tree/master/reactive/kotlinx-coroutines-reactive)，
+ * 因为其中会使用到它提供的辅助函数。
+ *
+ * 更多可参考 [executeApiReactive] 的文档说明。
  *
  * @param api 要被执行的 Milky API。
  * @param baseUrl API 的基础访问地址。注意包括访问端点前缀，例如 `http://localhost:8080/api`。
@@ -382,6 +396,7 @@ public fun HttpClient.executeApiTextReactive(
  * @throws MilkyApiExecutionException 如果 HTTP Status 不在 `200..<300`。
  *
  * @see executeApiText
+ * @see executeApiReactive
  */
 @OptIn(InternalSimbotAPI::class)
 @Api4J
@@ -537,14 +552,12 @@ public fun <R : Any> HttpClient.executeApiResultAsync(
  * 此函数会固定启用 HTTP Status 校验。若 [validateResult] 为 `true`，还会校验 Milky 返回结构中的
  * [MilkyApiResult.retcode] 是否为 [MilkyApiResult.SUCCESS_RETCODE]。
  * 此函数是 [executeApiResult] 的 JVM Reactive 桥接，返回 Reactive Streams [Publisher]。
- * 可以在引入 [reactor-core](https://github.com/reactor/reactor-core) 后转为 `Mono`：
  *
- * ```kotlin
- * val mono = reactor.core.publisher.Mono.from(client.executeApiResultReactive(api, baseUrl))
- * ```
+ * 如果要使用此函数，要求 classpath 中至少包含
+ * [kotlinx-coroutines-reactive](https://github.com/Kotlin/kotlinx.coroutines/tree/master/reactive/kotlinx-coroutines-reactive)，
+ * 因为其中会使用到它提供的辅助函数。
  *
- * 如果需要与 Kotlin 协程的 Reactor API 互操作，可另行引入
- * [kotlinx-coroutines-reactor](https://github.com/Kotlin/kotlinx.coroutines/tree/master/reactive/kotlinx-coroutines-reactor)。
+ * 更多可参考 [executeApiReactive] 的文档说明。
  *
  * @param R API 成功数据类型。
  * @param api 要被执行的有类型 Milky API。
@@ -561,6 +574,7 @@ public fun <R : Any> HttpClient.executeApiResultAsync(
  * [MilkyApiResult.SUCCESS_RETCODE]。
  *
  * @see executeApiResult
+ * @see executeApiReactive
  */
 @OptIn(InternalSimbotAPI::class)
 @Api4J
@@ -579,7 +593,12 @@ public fun <R : Any> HttpClient.executeApiResultReactive(
  * 此函数会固定启用 HTTP Status 校验。若 [validateResult] 为 `true`，还会校验 Milky 返回结构中的
  * [MilkyApiResult.retcode] 是否为 [MilkyApiResult.SUCCESS_RETCODE]。
  * 此函数是 [executeApiResult] 的 JVM Reactive 桥接，返回 Reactive Streams [Publisher]。
- * 可参考同名 `String` 重载中转为 `Mono` 的示例。
+ *
+ * 如果要使用此函数，要求 classpath 中至少包含
+ * [kotlinx-coroutines-reactive](https://github.com/Kotlin/kotlinx.coroutines/tree/master/reactive/kotlinx-coroutines-reactive)，
+ * 因为其中会使用到它提供的辅助函数。
+ *
+ * 更多可参考 [executeApiReactive] 的文档说明。
  *
  * @param R API 成功数据类型。
  * @param api 要被执行的有类型 Milky API。
@@ -596,6 +615,7 @@ public fun <R : Any> HttpClient.executeApiResultReactive(
  * [MilkyApiResult.SUCCESS_RETCODE]。
  *
  * @see executeApiResult
+ * @see executeApiReactive
  */
 @OptIn(InternalSimbotAPI::class)
 @Api4J
@@ -740,14 +760,12 @@ public fun <R : Any> HttpClient.executeApiContentAsync(
  * 此函数会固定启用 HTTP Status 校验与 Milky API 返回体校验，相当于执行 [executeApiResult] 后返回
  * [MilkyApiResult.data]。
  * 此函数是 [executeApiContent] 的 JVM Reactive 桥接，返回 Reactive Streams [Publisher]。
- * 可以在引入 [reactor-core](https://github.com/reactor/reactor-core) 后转为 `Mono`：
  *
- * ```kotlin
- * val mono = reactor.core.publisher.Mono.from(client.executeApiContentReactive(api, baseUrl))
- * ```
+ * 如果要使用此函数，要求 classpath 中至少包含
+ * [kotlinx-coroutines-reactive](https://github.com/Kotlin/kotlinx.coroutines/tree/master/reactive/kotlinx-coroutines-reactive)，
+ * 因为其中会使用到它提供的辅助函数。
  *
- * 如果需要与 Kotlin 协程的 Reactor API 互操作，可另行引入
- * [kotlinx-coroutines-reactor](https://github.com/Kotlin/kotlinx.coroutines/tree/master/reactive/kotlinx-coroutines-reactor)。
+ * 更多可参考 [executeApiReactive] 的文档说明。
  *
  * @param R API 成功数据类型。
  * @param api 要被执行的有类型 Milky API。
@@ -762,6 +780,7 @@ public fun <R : Any> HttpClient.executeApiContentAsync(
  * @throws MilkyApiResultFailedStatusException 如果 [MilkyApiResult.retcode] 不为 [MilkyApiResult.SUCCESS_RETCODE]。
  *
  * @see executeApiContent
+ * @see executeApiReactive
  */
 @OptIn(InternalSimbotAPI::class)
 @Api4J
@@ -779,7 +798,12 @@ public fun <R : Any> HttpClient.executeApiContentReactive(
  * 此函数会固定启用 HTTP Status 校验与 Milky API 返回体校验，相当于执行 [executeApiResult] 后返回
  * [MilkyApiResult.data]。
  * 此函数是 [executeApiContent] 的 JVM Reactive 桥接，返回 Reactive Streams [Publisher]。
- * 可参考同名 `String` 重载中转为 `Mono` 的示例。
+ *
+ * 如果要使用此函数，要求 classpath 中至少包含
+ * [kotlinx-coroutines-reactive](https://github.com/Kotlin/kotlinx.coroutines/tree/master/reactive/kotlinx-coroutines-reactive)，
+ * 因为其中会使用到它提供的辅助函数。
+ *
+ * 更多可参考 [executeApiReactive] 的文档说明。
  *
  * @param R API 成功数据类型。
  * @param api 要被执行的有类型 Milky API。
@@ -794,6 +818,7 @@ public fun <R : Any> HttpClient.executeApiContentReactive(
  * @throws MilkyApiResultFailedStatusException 如果 [MilkyApiResult.retcode] 不为 [MilkyApiResult.SUCCESS_RETCODE]。
  *
  * @see executeApiContent
+ * @see executeApiReactive
  */
 @OptIn(InternalSimbotAPI::class)
 @Api4J
