@@ -21,12 +21,9 @@
  *
  */
 
-package love.forte.simbot.component.milky
+package love.forte.simbot.component.milky.component
 
-/**
- *
- * @author Forte Scarlet
- */
-public object MilkyComponent {
-    // 占位？
-}
+import love.forte.simbot.common.services.Services
+
+internal actual fun loadMilkyComponentConfigures(): Sequence<MilkyComponentFactoryConfigurerProvider> =
+    Services.loadProviders<MilkyComponentFactoryConfigurerProvider>().map { it() }
