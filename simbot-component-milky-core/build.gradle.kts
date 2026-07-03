@@ -29,6 +29,13 @@ plugins {
 description = "Core implementation of simbot-component-milky."
 
 kotlin {
+    compilerOptions {
+        optIn.addAll(
+            "love.forte.simbot.event.FuzzyEventTypeImplementation",
+            ""
+        )
+    }
+
     sourceSets {
         commonMain.dependencies {
             api(project(":simbot-component-milky-api"))

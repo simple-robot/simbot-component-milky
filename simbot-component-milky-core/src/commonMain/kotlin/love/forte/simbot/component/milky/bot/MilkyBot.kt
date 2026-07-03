@@ -23,10 +23,18 @@
 
 package love.forte.simbot.component.milky.bot
 
+import love.forte.simbot.bot.Bot
+import love.forte.simbot.bot.InheritanceBotApi
+import love.forte.simbot.bot.InitializableBot
+
 /**
  *
  * @author Forte Scarlet
  */
-public interface MilkyBot {
+@OptIn(InheritanceBotApi::class)
+@SubclassOptInRequired(InternalForInheritanceMilkyBotApi::class)
+public interface MilkyBot : Bot, InitializableBot {
     // TODO ?
+
+
 }

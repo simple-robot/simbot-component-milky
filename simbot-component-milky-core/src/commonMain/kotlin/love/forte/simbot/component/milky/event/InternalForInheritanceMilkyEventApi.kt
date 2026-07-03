@@ -29,4 +29,4 @@ package love.forte.simbot.component.milky.event
  */
 @RequiresOptIn(message = "此类型应当仅由内部提供具体实现、不应该被外部直接实现，且不保证对实现者的兼容性。")
 @Target(AnnotationTarget.CLASS, AnnotationTarget.ANNOTATION_CLASS)
-public annotation class MilkyEventTypeImplementation
+public annotation class InternalForInheritanceMilkyEventApi

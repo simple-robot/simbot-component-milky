@@ -23,14 +23,24 @@
 
 package love.forte.simbot.component.milky.event
 
+import love.forte.simbot.component.milky.bot.MilkyBot
+import love.forte.simbot.event.BotEvent
 import love.forte.simbot.event.Event
-import love.forte.simbot.event.FuzzyEventTypeImplementation
 
 /**
  * 一个 Milky 的事件类型。
  *
  * @author Forte Scarlet
  */
-
-@OptIn(FuzzyEventTypeImplementation::class)
+@SubclassOptInRequired(InternalForInheritanceMilkyEventApi::class)
 public interface MilkyEvent : Event
+
+/**
+ * Milky 组件中与 [MilkyBot] 相关的事件类型。
+ *
+ * @author Forte Scarlet
+ */
+@SubclassOptInRequired(InternalForInheritanceMilkyEventApi::class)
+public interface MilkyBotEvent : MilkyEvent, BotEvent {
+    override val bot: MilkyBot
+}
