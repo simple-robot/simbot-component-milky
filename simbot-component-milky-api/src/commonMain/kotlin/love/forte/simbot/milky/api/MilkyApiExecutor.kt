@@ -25,8 +25,10 @@ package love.forte.simbot.milky.api
 
 import io.ktor.client.*
 import io.ktor.client.statement.*
+import love.forte.simbot.milky.api.internal.MilkyApiExecutorImpl
 import love.forte.simbot.milky.model.api.MilkyApiResult
 import love.forte.simbot.suspendrunner.ST
+import kotlin.jvm.JvmStatic
 
 /**
  * 一个可以提供用于执行 [MilkyApi] 必要内容的执行器。
@@ -72,6 +74,18 @@ public interface MilkyApiExecutor {
      */
     public suspend fun <R : Any> executeContent(api: TypedMilkyApi<R>): R =
         apiClient.executeApiContent(api, executionProperties.baseUrl, executionProperties.accessToken)
+
+    public companion object {
+        /**
+         * 构建一个 [MilkyApiExecutor]。
+         *
+         * @param apiClient 用于访问 API 的客户端。
+         * @param properties 执行器所需属性。
+         */
+        @JvmStatic
+        public fun create(apiClient: HttpClient, properties: MilkyApiExecutionProperties): MilkyApiExecutor =
+            MilkyApiExecutorImpl(apiClient, properties)
+    }
 }
 
 
