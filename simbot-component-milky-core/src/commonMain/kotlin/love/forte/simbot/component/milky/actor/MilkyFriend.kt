@@ -23,13 +23,16 @@
 
 package love.forte.simbot.component.milky.actor
 
+import love.forte.simbot.ability.DeleteOption
 import love.forte.simbot.ability.DeleteSupport
 import love.forte.simbot.common.id.LongID
 import love.forte.simbot.common.id.LongID.Companion.ID
 import love.forte.simbot.definition.Contact
 import love.forte.simbot.milky.common.utils.InternalMilkyUtilApi
 import love.forte.simbot.milky.common.utils.qqAvatar640
+import love.forte.simbot.milky.model.entity.MilkyRawUserSex
 import love.forte.simbot.milky.model.entity.friend.MilkyRawFriendEntity
+import love.forte.simbot.suspendrunner.ST
 import kotlin.coroutines.CoroutineContext
 
 /**
@@ -54,5 +57,48 @@ public interface MilkyFriend : MilkyEntityActor<MilkyRawFriendEntity>, Contact, 
     override val avatar: String?
         get() = qqAvatar640(rawEntity.userId.toString())
 
-    // TODO 其他属性也代理在这儿
+    /**
+     * 好友分组
+     */
+    public val category: MilkyFriendCategory
+
+    /**
+     * 性别
+     */
+    public val sex: MilkyRawUserSex
+        get() = rawEntity.sex
+
+    /**
+     * QID
+     */
+    public val qid: String
+        get() = rawEntity.qid
+
+    /**
+     * 备注
+     */
+    public val remark: String
+        get() = rawEntity.remark
+
+    /**
+     * 发送好友戳一戳
+     */
+    @ST
+    public suspend fun sendNudge()
+
+    /**
+     * 发送好友点赞
+     *
+     * @param count 发送次数。默认为1，最小为1。
+     */
+    @ST
+    public suspend fun sendProfileLike(count: Int = 1)
+
+    /**
+     * 删除好友
+     */
+    @ST
+    override suspend fun delete(vararg options: DeleteOption)
+
+
 }
