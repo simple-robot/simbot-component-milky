@@ -39,6 +39,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             api(project(":simbot-component-milky-api"))
+            api(project(":simbot-component-milky-common"))
             api(libs.simbot.core)
             api(libs.simbot.logger)
             api(libs.simbot.common.annotations)
