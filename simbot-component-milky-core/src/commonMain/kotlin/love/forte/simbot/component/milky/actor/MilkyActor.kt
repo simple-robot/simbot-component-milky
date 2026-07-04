@@ -43,9 +43,9 @@ public interface MilkyActor : Actor
  * @author Forte Scarlet
  */
 @SubclassOptInRequired(InternalForInheritanceMilkyActorApi::class)
-public interface MilkyEntityActor<E : Any> : MilkyActor {
+public interface MilkyEntityActor<E : Any> : MilkyActor, MilkyEntityAware<E> {
     /**
      * 该行为对象所代表的原始数据信息。
      */
-    public val rawEntity: E
+    override val rawEntity: E
 }
