@@ -33,46 +33,46 @@ import love.forte.simbot.milky.model.entity.MilkyRawUserSex
  * API 的响应体结构模型（输出参数）。
  */
 @Serializable
-public data class MilkyGetUserProfileResponse
+public class MilkyGetUserProfileResponse
 @MilkyApiModelConstructor private constructor(
     /**
      * 昵称
      */
-    val nickname: String,
+    public val nickname: String,
     /**
      * QID
      */
-    val qid: String,
+    public val qid: String,
     /**
      * 年龄
      */
-    val age: Int,
+    public val age: Int,
     /**
      * 性别
      */
-    val sex: MilkyRawUserSex,
+    public val sex: MilkyRawUserSex,
     /**
      * 备注
      */
-    val remark: String,
+    public val remark: String,
     /**
      * 个性签名
      */
-    val bio: String,
+    public val bio: String,
     /**
      * QQ 等级
      */
-    val level: Int,
+    public val level: Int,
     /**
      * 国家或地区
      */
-    val country: String,
+    public val country: String,
     /**
      * 城市
      */
-    val city: String,
+    public val city: String,
     /**
      * 学校
      */
-    val school: String,
+    public val school: String,
 ) : MilkyApiResponseModel

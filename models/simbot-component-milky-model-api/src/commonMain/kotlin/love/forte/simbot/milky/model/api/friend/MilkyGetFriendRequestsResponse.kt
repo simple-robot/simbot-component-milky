@@ -33,10 +33,10 @@ import love.forte.simbot.milky.model.entity.friend.MilkyRawFriendRequest
  * API 的响应体结构模型（输出参数）。
  */
 @Serializable
-public data class MilkyGetFriendRequestsResponse
+public class MilkyGetFriendRequestsResponse
 @MilkyApiModelConstructor private constructor(
     /**
      * 好友请求列表
      */
-    val requests: List<MilkyRawFriendRequest>,
+    public val requests: List<MilkyRawFriendRequest>,
 ) : MilkyApiResponseModel

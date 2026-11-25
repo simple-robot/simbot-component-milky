@@ -33,31 +33,31 @@ import love.forte.simbot.milky.model.api.MilkyApiResponseModel
  * API 的响应体结构模型（输出参数）。
  */
 @Serializable
-public data class MilkyGetImplInfoResponse
+public class MilkyGetImplInfoResponse
 @MilkyApiModelConstructor private constructor(
     /**
      * 协议端名称
      */
     @SerialName("impl_name")
-    val implName: String,
+    public val implName: String,
     /**
      * 协议端版本
      */
     @SerialName("impl_version")
-    val implVersion: String,
+    public val implVersion: String,
     /**
      * 协议端使用的 QQ 协议版本
      */
     @SerialName("qq_protocol_version")
-    val qqProtocolVersion: String,
+    public val qqProtocolVersion: String,
     /**
      * 协议端使用的 QQ 协议平台
      */
     @SerialName("qq_protocol_type")
-    val qqProtocolType: MilkyQqProtocolType,
+    public val qqProtocolType: MilkyQqProtocolType,
     /**
      * 协议端实现的 Milky 协议版本
      */
     @SerialName("milky_version")
-    val milkyVersion: String,
+    public val milkyVersion: String,
 ) : MilkyApiResponseModel

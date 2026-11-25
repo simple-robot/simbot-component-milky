@@ -32,29 +32,29 @@ import love.forte.simbot.milky.model.api.MilkyApiResponseModel
  * [IncomingForwardedMessage 接收转发消息](https://milky.ntqqrev.org/struct/IncomingForwardedMessage)
  */
 @Serializable
-public data class MilkyIncomingForwardedMessage
+public class MilkyIncomingForwardedMessage
 @MilkyApiModelConstructor private constructor(
     /**
      * 消息序列号
      */
     @SerialName("message_seq")
-    val messageSeq: Long,
+    public val messageSeq: Long,
     /**
      * 发送者名称
      */
     @SerialName("sender_name")
-    val senderName: String,
+    public val senderName: String,
     /**
      * 发送者头像 URL
      */
     @SerialName("avatar_url")
-    val avatarUrl: String,
+    public val avatarUrl: String,
     /**
      * 消息 Unix 时间戳（秒）
      */
-    val time: Long,
+    public val time: Long,
     /**
      * 消息段列表
      */
-    val segments: List<MilkyIncomingSegment>,
+    public val segments: List<MilkyIncomingSegment>,
 ) : MilkyApiResponseModel

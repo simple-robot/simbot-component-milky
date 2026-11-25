@@ -34,15 +34,15 @@ import love.forte.simbot.milky.model.entity.group.MilkyRawGroupNotification
  * API 的响应体结构模型（输出参数）。
  */
 @Serializable
-public data class MilkyGetGroupNotificationsResponse
+public class MilkyGetGroupNotificationsResponse
 @MilkyApiModelConstructor private constructor(
     /**
      * 获取到的群通知，按 notification_seq 降序排列
      */
-    val notifications: List<MilkyRawGroupNotification>,
+    public val notifications: List<MilkyRawGroupNotification>,
     /**
      * 下一页起始通知序列号
      */
     @SerialName("next_notification_seq")
-    val nextNotificationSeq: Long? = null,
+    public val nextNotificationSeq: Long? = null,
 ) : MilkyApiResponseModel

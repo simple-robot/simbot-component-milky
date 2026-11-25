@@ -35,47 +35,47 @@ import love.forte.simbot.milky.model.entity.group.MilkyRawGroupMemberEntity
  * [IncomingMessage 接收消息](https://milky.ntqqrev.org/struct/IncomingMessage)
  */
 @Serializable
-public data class MilkyIncomingMessage
+public class MilkyIncomingMessage
 @MilkyApiModelConstructor private constructor(
     /**
      * 消息场景
      */
     @SerialName("message_scene")
-    val messageScene: MilkyMessageScene,
+    public val messageScene: MilkyMessageScene,
     /**
      * 好友 QQ 号或群号
      */
     @SerialName("peer_id")
-    val peerId: Long,
+    public val peerId: Long,
     /**
      * 消息序列号
      */
     @SerialName("message_seq")
-    val messageSeq: Long,
+    public val messageSeq: Long,
     /**
      * 发送者 QQ 号
      */
     @SerialName("sender_id")
-    val senderId: Long,
+    public val senderId: Long,
     /**
      * 消息 Unix 时间戳（秒）
      */
-    val time: Long,
+    public val time: Long,
     /**
      * 消息段列表
      */
-    val segments: List<MilkyIncomingSegment>,
+    public val segments: List<MilkyIncomingSegment>,
     /**
      * 好友信息
      */
-    val friend: MilkyRawFriendEntity? = null,
+    public val friend: MilkyRawFriendEntity? = null,
     /**
      * 群信息
      */
-    val group: MilkyRawGroupEntity? = null,
+    public val group: MilkyRawGroupEntity? = null,
     /**
      * 群成员信息
      */
     @SerialName("group_member")
-    val groupMember: MilkyRawGroupMemberEntity? = null,
+    public val groupMember: MilkyRawGroupMemberEntity? = null,
 ) : MilkyApiResponseModel

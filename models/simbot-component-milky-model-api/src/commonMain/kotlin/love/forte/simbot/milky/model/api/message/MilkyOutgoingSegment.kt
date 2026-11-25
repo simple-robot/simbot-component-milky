@@ -101,14 +101,14 @@ public sealed interface MilkyOutgoingSegment {
 /** [text 文本消息段](https://milky.ntqqrev.org/struct/OutgoingSegment#type-text)。 */
 @Serializable
 @SerialName(MilkyOutgoingTextSegment.TYPE)
-public data class MilkyOutgoingTextSegment
+public class MilkyOutgoingTextSegment
 @MilkyApiModelConstructor constructor(
-    val data: Data,
+    public val data: Data,
 ) : MilkyOutgoingSegment {
     @Serializable
-    public data class Data
+    public class Data
     @MilkyApiModelConstructor constructor(
-        val text: String,
+        public val text: String,
     )
 
     public companion object {
@@ -119,15 +119,15 @@ public data class MilkyOutgoingTextSegment
 /** [mention 提及消息段](https://milky.ntqqrev.org/struct/OutgoingSegment#type-mention)。 */
 @Serializable
 @SerialName(MilkyOutgoingMentionSegment.TYPE)
-public data class MilkyOutgoingMentionSegment
+public class MilkyOutgoingMentionSegment
 @MilkyApiModelConstructor constructor(
-    val data: Data,
+    public val data: Data,
 ) : MilkyOutgoingSegment {
     @Serializable
-    public data class Data
+    public class Data
     @MilkyApiModelConstructor constructor(
         @SerialName("user_id")
-        val userId: Long,
+        public val userId: Long,
     )
 
     public companion object {
@@ -138,9 +138,9 @@ public data class MilkyOutgoingMentionSegment
 /** [mention_all 提及全体消息段](https://milky.ntqqrev.org/struct/OutgoingSegment#type-mention_all)。 */
 @Serializable
 @SerialName(MilkyOutgoingMentionAllSegment.TYPE)
-public data class MilkyOutgoingMentionAllSegment
+public class MilkyOutgoingMentionAllSegment
 @MilkyApiModelConstructor constructor(
-    val data: Data,
+    public val data: Data,
 ) : MilkyOutgoingSegment {
     @Serializable
     public class Data
@@ -154,17 +154,17 @@ public data class MilkyOutgoingMentionAllSegment
 /** [face 表情消息段](https://milky.ntqqrev.org/struct/OutgoingSegment#type-face)。 */
 @Serializable
 @SerialName(MilkyOutgoingFaceSegment.TYPE)
-public data class MilkyOutgoingFaceSegment
+public class MilkyOutgoingFaceSegment
 @MilkyApiModelConstructor constructor(
-    val data: Data,
+    public val data: Data,
 ) : MilkyOutgoingSegment {
     @Serializable
-    public data class Data
+    public class Data
     @MilkyApiModelConstructor constructor(
         @SerialName("face_id")
-        val faceId: String,
+        public val faceId: String,
         @SerialName("is_large")
-        val isLarge: Boolean = false,
+        public val isLarge: Boolean = false,
     )
 
     public companion object {
@@ -175,15 +175,15 @@ public data class MilkyOutgoingFaceSegment
 /** [reply 回复消息段](https://milky.ntqqrev.org/struct/OutgoingSegment#type-reply)。 */
 @Serializable
 @SerialName(MilkyOutgoingReplySegment.TYPE)
-public data class MilkyOutgoingReplySegment
+public class MilkyOutgoingReplySegment
 @MilkyApiModelConstructor constructor(
-    val data: Data,
+    public val data: Data,
 ) : MilkyOutgoingSegment {
     @Serializable
-    public data class Data
+    public class Data
     @MilkyApiModelConstructor constructor(
         @SerialName("message_seq")
-        val messageSeq: Long,
+        public val messageSeq: Long,
     )
 
     public companion object {
@@ -194,17 +194,17 @@ public data class MilkyOutgoingReplySegment
 /** [image 图片消息段](https://milky.ntqqrev.org/struct/OutgoingSegment#type-image)。 */
 @Serializable
 @SerialName(MilkyOutgoingImageSegment.TYPE)
-public data class MilkyOutgoingImageSegment
+public class MilkyOutgoingImageSegment
 @MilkyApiModelConstructor constructor(
-    val data: Data,
+    public val data: Data,
 ) : MilkyOutgoingSegment {
     @Serializable
-    public data class Data
+    public class Data
     @MilkyApiModelConstructor constructor(
-        val uri: String,
+        public val uri: String,
         @SerialName("sub_type")
-        val subType: MilkyImageSubType = MilkyImageSubType.NORMAL,
-        val summary: String? = null,
+        public val subType: MilkyImageSubType = MilkyImageSubType.NORMAL,
+        public val summary: String? = null,
     )
 
     public companion object {
@@ -215,14 +215,14 @@ public data class MilkyOutgoingImageSegment
 /** [record 语音消息段](https://milky.ntqqrev.org/struct/OutgoingSegment#type-record)。 */
 @Serializable
 @SerialName(MilkyOutgoingRecordSegment.TYPE)
-public data class MilkyOutgoingRecordSegment
+public class MilkyOutgoingRecordSegment
 @MilkyApiModelConstructor constructor(
-    val data: Data,
+    public val data: Data,
 ) : MilkyOutgoingSegment {
     @Serializable
-    public data class Data
+    public class Data
     @MilkyApiModelConstructor constructor(
-        val uri: String,
+        public val uri: String,
     )
 
     public companion object {
@@ -233,16 +233,16 @@ public data class MilkyOutgoingRecordSegment
 /** [video 视频消息段](https://milky.ntqqrev.org/struct/OutgoingSegment#type-video)。 */
 @Serializable
 @SerialName(MilkyOutgoingVideoSegment.TYPE)
-public data class MilkyOutgoingVideoSegment
+public class MilkyOutgoingVideoSegment
 @MilkyApiModelConstructor constructor(
-    val data: Data,
+    public val data: Data,
 ) : MilkyOutgoingSegment {
     @Serializable
-    public data class Data
+    public class Data
     @MilkyApiModelConstructor constructor(
-        val uri: String,
+        public val uri: String,
         @SerialName("thumb_uri")
-        val thumbUri: String? = null,
+        public val thumbUri: String? = null,
     )
 
     public companion object {
@@ -253,18 +253,18 @@ public data class MilkyOutgoingVideoSegment
 /** [forward 合并转发消息段](https://milky.ntqqrev.org/struct/OutgoingSegment#type-forward)。 */
 @Serializable
 @SerialName(MilkyOutgoingForwardSegment.TYPE)
-public data class MilkyOutgoingForwardSegment
+public class MilkyOutgoingForwardSegment
 @MilkyApiModelConstructor constructor(
-    val data: Data,
+    public val data: Data,
 ) : MilkyOutgoingSegment {
     @Serializable
-    public data class Data
+    public class Data
     @MilkyApiModelConstructor constructor(
-        val messages: List<MilkyOutgoingForwardedMessage>,
-        val title: String? = null,
-        val preview: List<String>? = null,
-        val summary: String? = null,
-        val prompt: String? = null,
+        public val messages: List<MilkyOutgoingForwardedMessage>,
+        public val title: String? = null,
+        public val preview: List<String>? = null,
+        public val summary: String? = null,
+        public val prompt: String? = null,
     )
 
     public companion object {
@@ -275,15 +275,15 @@ public data class MilkyOutgoingForwardSegment
 /** [light_app 小程序消息段](https://milky.ntqqrev.org/struct/OutgoingSegment#type-light_app)。 */
 @Serializable
 @SerialName(MilkyOutgoingLightAppSegment.TYPE)
-public data class MilkyOutgoingLightAppSegment
+public class MilkyOutgoingLightAppSegment
 @MilkyApiModelConstructor constructor(
-    val data: Data,
+    public val data: Data,
 ) : MilkyOutgoingSegment {
     @Serializable
-    public data class Data
+    public class Data
     @MilkyApiModelConstructor constructor(
         @SerialName("json_payload")
-        val jsonPayload: String,
+        public val jsonPayload: String,
     )
 
     public companion object {

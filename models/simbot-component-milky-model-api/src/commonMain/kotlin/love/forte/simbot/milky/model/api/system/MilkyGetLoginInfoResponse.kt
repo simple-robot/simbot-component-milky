@@ -34,14 +34,14 @@ import love.forte.simbot.milky.model.api.MilkyApiResponseModel
  * @author Forte Scarlet
  */
 @Serializable
-public data class MilkyGetLoginInfoResponse
+public class MilkyGetLoginInfoResponse
 @MilkyApiModelConstructor private constructor(
     /**
      * 登录 QQ 号
      */
-    val uin: Long,
+    public val uin: Long,
     /**
      * 登录 QQ 昵称
      */
-    val nickname: String,
+    public val nickname: String,
 ) : MilkyApiResponseModel

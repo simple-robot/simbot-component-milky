@@ -34,14 +34,14 @@ import love.forte.simbot.milky.model.entity.group.MilkyRawGroupFolderEntity
  * API 的响应体结构模型（输出参数）。
  */
 @Serializable
-public data class MilkyGetGroupFilesResponse
+public class MilkyGetGroupFilesResponse
 @MilkyApiModelConstructor private constructor(
     /**
      * 文件列表
      */
-    val files: List<MilkyRawGroupFileEntity>,
+    public val files: List<MilkyRawGroupFileEntity>,
     /**
      * 文件夹列表
      */
-    val folders: List<MilkyRawGroupFolderEntity>,
+    public val folders: List<MilkyRawGroupFolderEntity>,
 ) : MilkyApiResponseModel

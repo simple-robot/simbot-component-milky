@@ -33,11 +33,11 @@ import love.forte.simbot.milky.model.api.MilkyApiResponseModel
  * API 的响应体结构模型（输出参数）。
  */
 @Serializable
-public data class MilkyGetGroupFileDownloadUrlResponse
+public class MilkyGetGroupFileDownloadUrlResponse
 @MilkyApiModelConstructor private constructor(
     /**
      * 文件下载链接
      */
     @SerialName("download_url")
-    val downloadUrl: String,
+    public val downloadUrl: String,
 ) : MilkyApiResponseModel

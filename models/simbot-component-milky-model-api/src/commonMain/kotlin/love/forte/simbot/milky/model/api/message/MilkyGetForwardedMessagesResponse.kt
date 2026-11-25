@@ -32,10 +32,10 @@ import love.forte.simbot.milky.model.api.MilkyApiResponseModel
  * API 的响应体结构模型（输出参数）。
  */
 @Serializable
-public data class MilkyGetForwardedMessagesResponse
+public class MilkyGetForwardedMessagesResponse
 @MilkyApiModelConstructor private constructor(
     /**
      * 转发消息内容
      */
-    val messages: List<MilkyIncomingForwardedMessage>,
+    public val messages: List<MilkyIncomingForwardedMessage>,
 ) : MilkyApiResponseModel

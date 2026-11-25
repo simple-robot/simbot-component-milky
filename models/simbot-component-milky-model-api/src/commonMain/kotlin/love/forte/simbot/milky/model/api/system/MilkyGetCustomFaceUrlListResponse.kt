@@ -32,10 +32,10 @@ import love.forte.simbot.milky.model.api.MilkyApiResponseModel
  * API 的响应体结构模型（输出参数）。
  */
 @Serializable
-public data class MilkyGetCustomFaceUrlListResponse
+public class MilkyGetCustomFaceUrlListResponse
 @MilkyApiModelConstructor private constructor(
     /**
      * 自定义表情 URL 列表
      */
-    val urls: List<String>,
+    public val urls: List<String>,
 ) : MilkyApiResponseModel

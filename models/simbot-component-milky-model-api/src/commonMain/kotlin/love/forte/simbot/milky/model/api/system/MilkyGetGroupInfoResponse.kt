@@ -33,10 +33,10 @@ import love.forte.simbot.milky.model.entity.group.MilkyRawGroupEntity
  * API 的响应体结构模型（输出参数）。
  */
 @Serializable
-public data class MilkyGetGroupInfoResponse
+public class MilkyGetGroupInfoResponse
 @MilkyApiModelConstructor private constructor(
     /**
      * 群信息
      */
-    val group: MilkyRawGroupEntity,
+    public val group: MilkyRawGroupEntity,
 ) : MilkyApiResponseModel

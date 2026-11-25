@@ -33,15 +33,15 @@ import love.forte.simbot.milky.model.api.MilkyApiResponseModel
  * API 的响应体结构模型（输出参数）。
  */
 @Serializable
-public data class MilkyGetGroupEssenceMessagesResponse
+public class MilkyGetGroupEssenceMessagesResponse
 @MilkyApiModelConstructor private constructor(
     /**
      * 精华消息列表
      */
-    val messages: List<MilkyGroupEssenceMessage>,
+    public val messages: List<MilkyGroupEssenceMessage>,
     /**
      * 是否已到最后一页
      */
     @SerialName("is_end")
-    val isEnd: Boolean,
+    public val isEnd: Boolean,
 ) : MilkyApiResponseModel

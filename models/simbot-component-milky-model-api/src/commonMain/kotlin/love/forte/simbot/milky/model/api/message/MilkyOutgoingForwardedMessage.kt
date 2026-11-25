@@ -32,22 +32,22 @@ import kotlin.jvm.JvmStatic
  * [OutgoingForwardedMessage 发送转发消息](https://milky.ntqqrev.org/struct/OutgoingForwardedMessage)。
  */
 @Serializable
-public data class MilkyOutgoingForwardedMessage
+public class MilkyOutgoingForwardedMessage
 @MilkyApiModelConstructor constructor(
     /**
      * 发送者 QQ 号。
      */
     @SerialName("user_id")
-    val userId: Long,
+    public val userId: Long,
     /**
      * 发送者名称。
      */
     @SerialName("sender_name")
-    val senderName: String,
+    public val senderName: String,
     /**
      * 消息段列表。
      */
-    val segments: List<MilkyOutgoingSegment>,
+    public val segments: List<MilkyOutgoingSegment>,
 ) {
     public companion object {
         /**

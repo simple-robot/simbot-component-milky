@@ -33,11 +33,11 @@ import love.forte.simbot.milky.model.api.MilkyApiResponseModel
  * API 的响应体结构模型（输出参数）。
  */
 @Serializable
-public data class MilkyGetCsrfTokenResponse
+public class MilkyGetCsrfTokenResponse
 @MilkyApiModelConstructor private constructor(
     /**
      * CSRF Token
      */
     @SerialName("csrf_token")
-    val csrfToken: String,
+    public val csrfToken: String,
 ) : MilkyApiResponseModel
