@@ -36,7 +36,7 @@ fun KotlinTargetContainerWithPresetFunctions.applyTier2(): List<KotlinNativeTarg
     return buildList {
         add(linuxX64())
         add(watchosSimulatorArm64())
-        add(watchosArm32())
+        // add(watchosArm32())
         add(watchosArm64())
         add(tvosSimulatorArm64())
         add(tvosArm64())
@@ -44,7 +44,6 @@ fun KotlinTargetContainerWithPresetFunctions.applyTier2(): List<KotlinNativeTarg
 }
 
 fun KotlinTargetContainerWithPresetFunctions.applyTier3(
-    watchosX64: Boolean = true,
     watchosDeviceArm64: Boolean = false,
     androidNative: Boolean = false,
 ): List<KotlinNativeTarget> {
@@ -59,12 +58,12 @@ fun KotlinTargetContainerWithPresetFunctions.applyTier3(
         if (watchosDeviceArm64) {
             add(watchosDeviceArm64())
         }
-        add(macosX64())
+        // add(macosX64())
         add(iosX64())
-        if (watchosX64) {
-            add(watchosX64())
-        }
-        add(tvosX64())
+        // if (watchosX64) {
+        //     add(watchosX64())
+        // }
+        // add(tvosX64())
     }
 }
 

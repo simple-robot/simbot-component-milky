@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.4.0"
+kotlin = "2.5.0-RC"
 dokka = "2.2.0"
 kotlinx-coroutines = "1.11.0"
 kotlinx-serialization = "1.11.0"
@@ -8,11 +8,11 @@ kotlinx-io = "0.9.0"
 ktor = "3.3.3"
 slf4j = "2.0.17"
 log4j = "2.24.3"
-simbot = "5.0.0-Preview3"
+simbot = "5.0.0-Alpha2"
 maven-publish-plugin = "0.34.0"
-ksp = "2.3.4"
+ksp = "2.3.14"
 codegentle = "0.0.4"
-kstcp = "2.4.0-0.14.0"
+kstcp = "2.5.0-RC-0.15.0"
 
 [libraries]
 maven-publish = { module = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin", version.ref = "maven-publish-plugin" }
@@ -20,7 +20,8 @@ dokka-plugin = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref
 
 simbot-api = { module = "love.forte.simbot:simbot-api", version.ref = "simbot" }
 simbot-core = { module = "love.forte.simbot:simbot-core", version.ref = "simbot" }
-simbot-logger = { module = "love.forte.simbot.logger:simbot-logger", version.ref = "simbot" }
+# TODO simbot-logger = { module = "love.forte.simbot.logger:simbot-logger", version.ref = "simbot" }
+simbot-logger = { module = "love.forte.simbot:simbot-logger", version.ref = "simbot" }
 simbot-common-annotations = { module = "love.forte.simbot.common:simbot-common-annotations", version.ref = "simbot" }
 simbot-common-time = { module = "love.forte.simbot.common:simbot-common-time", version.ref = "simbot" }
 simbot-common-apidefinition = { module = "love.forte.simbot.common:simbot-common-apidefinition", version.ref = "simbot" }
